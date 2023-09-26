@@ -2,7 +2,7 @@ import StudentTable from "./student/StudentTable"
 
 function Students() {
   return (
-    <div>
+    <div className="flex justify-center w-full rounded-lg">
       <StudentTable />
     </div>
   )
