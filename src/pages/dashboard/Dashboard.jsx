@@ -6,7 +6,7 @@ import EventCalendar from "./components/EventCalendar"
 function Dashboard() {
   return (
     <div className="flex gap-4 w-full">
-      <div className="w-3/4 flex flex-col gap-2">
+      <div className="w-3/4 flex flex-col gap-1">
         <Trends />
         <Overview />
       </div>

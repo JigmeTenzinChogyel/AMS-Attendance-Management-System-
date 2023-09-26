@@ -9,7 +9,7 @@ function Layout() {
         <AdminHeader />
         <div className="flex">
           <AdminSideNav />
-          <div className="p-3 w-5/6 bg-slate-100 flex">
+          <div className="p-2 w-5/6 bg-slate-100 flex">
             <Outlet/>
           </div>
         </div>

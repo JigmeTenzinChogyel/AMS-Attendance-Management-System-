@@ -76,7 +76,7 @@ function Overview() {
   return (
     <div className="rounded-xl flex flex-col justify-between items-center w-full h-full bg-white px-5 pt-3 pb-1">
       <h1 className="text-xl font-bold">Attendance Overview</h1>
-      <div className="mt-5 h-full w-full flex justify-center items-center">
+      <div className="mt-5 h-10/12 w-10/12 flex justify-center items-center">
         <Line data={data} options={options} />
       </div>
     </div>

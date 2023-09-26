@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Layout from "./layouts/Layout"
-import Students from "./pages/Students"
+import Students from "./pages/student/Students"
 import Events from "./pages/Events"
 import Leave from "./pages/Leave"
 import Attendance from "./pages/Attendance"

@@ -1,4 +1,4 @@
-import StudentTable from "./student/StudentTable"
+import StudentTable from "../student/components/StudentTable"
 
 function Students() {
   return (
