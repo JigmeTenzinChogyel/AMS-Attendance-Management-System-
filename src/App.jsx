@@ -4,7 +4,7 @@ import Students from "./pages/Students"
 import Events from "./pages/Events"
 import Leave from "./pages/Leave"
 import Attendance from "./pages/Attendance"
-import Dashboard from "./pages/Dashboard"
+import Dashboard from "./pages/dashboard/Dashboard"
 
 function App() {
   return (

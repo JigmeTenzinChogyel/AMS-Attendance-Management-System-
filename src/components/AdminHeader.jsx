@@ -25,12 +25,12 @@ function AdminHeader() {
   }
 
   return (
-    <div className='pl-10 pr-10 flex items-center'>
+    <div className='py-2 px-10 flex items-center'>
         <div className=''>
-            <img src={logo} className='w-32 h-32'/>
+            <img src={logo} className='w-24 h-24'/>
         </div>
         <div className='ml-40'>
-            <h1 className='text-2xl font-semibold'>{ title }</h1>
+            <h1 className='text-3xl font-semibold'>{ title }</h1>
         </div>
         <div className='ml-auto flex justify-evenly gap-20'>
             <div>
