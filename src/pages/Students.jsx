@@ -1,7 +1,10 @@
+import StudentTable from "./student/StudentTable"
 
 function Students() {
   return (
-    <div>Students</div>
+    <div>
+      <StudentTable />
+    </div>
   )
 }
 
