@@ -8,8 +8,9 @@ function AdminSideNav() {
   };
 
   const style = "mt-6 p-2 pr-10 pl-10 rounded-full text-xl"
+
   return (
-    <div className="p-2 pl-4 pr-4 w-1/5 h-fit flex flex-col gap-36 items-center">
+    <div className="p-4 w-1/6 h-fit flex flex-col gap-36 items-center">
       <nav>
         <ul>
           <li className={`${style} ${isNavLinkActive("/")}`}>
@@ -29,7 +30,7 @@ function AdminSideNav() {
           </li>
         </ul>
       </nav>
-      <button className="mb-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <button className="my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Log Out
       </button>
     </div>
