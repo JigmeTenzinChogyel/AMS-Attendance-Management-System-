@@ -1,28 +1,8 @@
 /* eslint-disable react/prop-types */
 import logo from  '../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useLocation } from 'react-router-dom'
 
-function AdminHeader() {
-
-  const location = useLocation()
-  let title = "Dashboard"
-  switch (location.pathname) {
-    case "/student":
-      title = "Student"
-      break;
-    case "/event":
-      title = "Event"
-      break;
-    case "/leave":
-      title = "Leave"
-      break;
-    case "/attendance":
-      title = "Attendance"
-      break;
-    default:
-      title = "Dashboard"
-  }
+function AdminHeader({ title }) {
 
   return (
     <div className='py-4 w-full px-10 flex items-center fixed top-0 bg-white'>

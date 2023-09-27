@@ -9,12 +9,16 @@ import StudentAttendance from "./pages/attendance/components/Student"
 import Report from "./pages/attendance/components/Report"
 import EventAttendance  from "./pages/attendance/components/Events"
 import DashboardAttendance from "./pages/attendance/components/Dashboard"
+import SignIn from "./auth/SignIn"
+import SignUp from "./auth/SignUp"
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />} >
+        <Route path="signin" element={<SignIn />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="admin" element={<Layout />} >
           <Route index element={<Dashboard />} />
           <Route path="student" element={<Students />} />
           <Route path="event" element={<Events />} />

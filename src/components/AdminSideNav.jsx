@@ -1,34 +1,30 @@
-import { Link, useLocation } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { NavLink } from "react-router-dom";
 
-function AdminSideNav() {
-  const location = useLocation();
+function AdminSideNav({ addTitle }) {
 
-  const isNavLinkActive = (path) => {
-    return location.pathname === path && "bg-blue-500 text-white";
-  };
+  const style = "px-4 my-2 py-2 text-xl text-black"
+  const activeStyle = "px-4 my-2 py-2 text-xl text-white bg-blue-500 rounded-full"
 
-  const style = "mt-6 p-2 pr-10 pl-10 rounded-full text-xl"
+  const isSelected = ( active, value ) => {
+    console.log(active)
+    if (active == true) {
+      addTitle(value)
+      return activeStyle
+    }
+    else {
+      return style
+    }
+  }
 
   return (
     <div className="bg-white mt-24 py-4 w-1/6 flex flex-col gap-36 items-center fixed">
-      <nav>
-        <ul>
-          <li className={`${style} ${isNavLinkActive("/")}`}>
-            <Link to="/">Dashboard</Link>
-          </li>
-          <li className={`${style}  ${isNavLinkActive("/student")}`}>
-            <Link to="/student">Student</Link>
-          </li>
-          <li className={`${style}  ${isNavLinkActive("/event")}`}>
-            <Link to="/event">Event</Link>
-          </li>
-          <li className={`${style}  ${isNavLinkActive("/leave")}`}>
-            <Link to="/leave">Leave</Link>
-          </li>
-          <li className={`${style}  ${isNavLinkActive("/attendance")}`}>
-            <Link to="/attendance">Attendance</Link>
-          </li>
-        </ul>
+      <nav className="flex flex-col p-3 gap-2 w-3/4 justify-center">
+        <NavLink to="." end className={ ({isActive}) => isSelected(isActive, "Dashboard")}>Dashboard</NavLink>
+        <NavLink to="student" end className={ ({isActive}) => isSelected(isActive, "Student")}>Student</NavLink>
+        <NavLink to="event" end className={ ({isActive}) => isSelected(isActive, "Event")}>Event</NavLink>
+        <NavLink to="leave" end className={ ({isActive}) => isSelected(isActive, "Leave")}>Leave</NavLink>
+        <NavLink to="attendance" className={ ({isActive}) => isSelected(isActive, "Attendance")}>Attendance</NavLink>
       </nav>
       <button className="my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Log Out
