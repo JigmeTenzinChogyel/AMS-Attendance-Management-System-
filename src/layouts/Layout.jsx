@@ -7,10 +7,12 @@ function Layout() {
   return (
     <div className="Layout">
         <AdminHeader />
-        <div className="flex">
+        <div className="flex w-full">
           <AdminSideNav />
-          <div className="p-2 w-5/6 bg-slate-100 flex">
-            <Outlet/>
+          <div className="p-2 mt-24 w-full bg-slate-100 flex justify-end">
+            <div className="w-5/6">
+              <Outlet/>
+            </div>
           </div>
         </div>
     </div>

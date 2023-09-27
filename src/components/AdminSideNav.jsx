@@ -10,7 +10,7 @@ function AdminSideNav() {
   const style = "mt-6 p-2 pr-10 pl-10 rounded-full text-xl"
 
   return (
-    <div className="p-4 w-1/6 h-fit flex flex-col gap-36 items-center">
+    <div className="bg-white mt-24 py-4 w-1/6 flex flex-col gap-36 items-center fixed">
       <nav>
         <ul>
           <li className={`${style} ${isNavLinkActive("/")}`}>
