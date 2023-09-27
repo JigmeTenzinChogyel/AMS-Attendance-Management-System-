@@ -2,45 +2,32 @@ import DataTable from "react-data-table-component";
 import { studentDetails } from "../../../Data/dummyStudent";
 import { useEffect, useState } from "react";
 
-function StudentTable() {
+function EventTable() {
   
   const [search, setSearch] = useState("");
   const [filteredSearch, setFilteredSearch] = useState(studentDetails);
 
   const columns = [
     {
-      name: '#',
-      cell: (row, index) => index + 1,
+        name: '#',
+        cell: (row, index) => index + 1,
     },
     {
-      name: "Student No",
-      selector: (row) => row.stdNo,
-      sortable: true,
+        name: "Title",
+        selector: (row) => row.name,
+        sortable: true
     },
     {
-      name: "Name",
-      selector: (row) => row.name,
-    },
-    {
-      name: "Email",
+      name: "Description",
       selector: (row) => row.email,
     },
     {
-      name: "Sex",
+      name: "Date",
       selector: (row) => row.sex,
-      sortable: true,
     },
     {
-      name: "Department",
+      name: "Status",
       selector: (row) => row.Department,
-    },
-    {
-      name: "Semester",
-      selector: (row) => row.semester,
-    },
-    {
-      name: "Role",
-      selector: (row) => row.role,
     },
     {
       name: "Edit",
@@ -54,7 +41,7 @@ function StudentTable() {
 
   useEffect(() => {
     const result = studentDetails.filter((data) => {
-      return data.stdNo.toLowerCase().includes(search.toLowerCase()); // Use includes() for substring matching
+      return data.name.toLowerCase().includes(search.toLowerCase()); // Use includes() for substring matching
     });
     setFilteredSearch(result);
   }, [search]);
@@ -64,7 +51,7 @@ function StudentTable() {
       <DataTable
         columns={columns}
         data={filteredSearch}
-        title="Student Details List"
+        title="Event Details List"
         pagination
         fixedHeader
         fixedHeaderScrollHeight="380px"
@@ -72,15 +59,14 @@ function StudentTable() {
         highlightOnHover
         actions={
           <div className="flex gap-5">
-            <button className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded">Add</button>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold text-base py-1 px-2 rounded">Export</button>
+            <button className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded">Create</button>
           </div>
         }
         subHeader
         subHeaderComponent={
           <input
             type="text"
-            placeholder="student no..."
+            placeholder="event name..."
             className="border border-blue-800 rounded-md py-1 px-3 focus:ring-blue-500 focus:border-blue-500"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -91,4 +77,4 @@ function StudentTable() {
   );
 }
 
-export default StudentTable;
+export default EventTable;
