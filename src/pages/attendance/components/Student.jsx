@@ -36,7 +36,7 @@ function Student() {
   ];
 
   return (
-    <div className="flex flex-col w-full rounded-lg justify-center items-center">
+    <div className="flex flex-col w-full rounded-lg justify-center items-center bg-white">
       <div className="p-4 m-2">
           <label>Search for a student</label>
           <input type="text" placeholder="search..." className="px-2 py-1 border"/>
@@ -53,12 +53,21 @@ function Student() {
             highlightOnHover
           />
         </div>
-        <div className="w-full flex flex-col items-start">
-          <h1>Statistics</h1>
-          <div className="w-full">
-            <LineChart />
-            <BarChart />
-            <PieChart />
+        <div className="w-full flex flex-col items-start border mt-16 mb-6">
+          <h1 className="text-2xl font-semibold p-3 mt-4">Statistics</h1>
+          <div className="w-full grid grid-cols-4 p-10">
+            <div className="col-span-3 row-span-2 p-4">
+              <BarChart />
+            </div>
+            <div className="row-span-2 flex justify-center items-center p-4">
+              <PieChart />
+            </div>
+            <div className="col-span-3 row-span-2 p-4">
+              <LineChart />
+            </div>
+            <div className="row-span-2 flex justify-center items-center p-4">
+              <PieChart />
+            </div>
           </div>
         </div>
       </div>
@@ -67,3 +76,19 @@ function Student() {
 }
 
 export default Student;
+
+{/* <div className="w-full">
+            <div className="flex justify-center items-center p-5">
+              <BarChart />
+            </div>
+            <div>
+              <div className="">
+                <LineChart />
+              </div>
+            </div>
+            <div>
+              <div>
+              <PieChart />
+              </div>
+            </div>
+          </div> */}

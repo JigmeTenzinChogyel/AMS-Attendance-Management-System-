@@ -18,7 +18,7 @@ function AdminSideNav({ addTitle }) {
   }
 
   return (
-    <div className="bg-white mt-24 py-4 w-1/6 flex flex-col gap-36 items-center fixed">
+    <div className="bg-white mt-24 py-4 w-1/6 flex flex-col gap-36 items-center fixed z-10">
       <nav className="flex flex-col p-3 gap-2 w-3/4 justify-center">
         <NavLink to="." end className={ ({isActive}) => isSelected(isActive, "Dashboard")}>Dashboard</NavLink>
         <NavLink to="student" end className={ ({isActive}) => isSelected(isActive, "Student")}>Student</NavLink>

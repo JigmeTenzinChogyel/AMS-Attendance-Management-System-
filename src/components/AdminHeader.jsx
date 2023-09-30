@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function AdminHeader({ title }) {
 
   return (
-    <div className='py-4 w-full px-10 flex items-center fixed top-0 bg-white'>
+    <div className='py-4 w-full px-10 flex items-center fixed top-0 bg-white z-10'>
         <div className=''>
             <img src={logo} className='w-16 h-16'/>
         </div>
