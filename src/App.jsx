@@ -12,12 +12,6 @@ import DashboardAttendance from "./pages/attendance/components/Dashboard"
 import SignIn from "./auth/SignIn"
 import SignUp from "./auth/SignUp"
 
-
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
-
-
 function App() {
   return (
     <Router>

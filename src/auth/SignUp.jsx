@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 import './SignUp.css';
 import axios from 'axios'; // Import Axios
 import logo from '../assets/logo.png';
