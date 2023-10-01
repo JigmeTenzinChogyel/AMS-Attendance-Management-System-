@@ -14,7 +14,8 @@ import
   faCalendar,
   faFileCircleCheck,
   faFilePen,
-  faBell
+  faBell,
+  faCalendarDays
 } from '@fortawesome/free-solid-svg-icons'
 library.add( 
   faMagnifyingGlass, 
@@ -25,7 +26,8 @@ library.add(
   faCalendar,
   faFileCircleCheck,
   faFilePen,
-  faBell )
+  faBell,
+  faCalendarDays )
 
   ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
