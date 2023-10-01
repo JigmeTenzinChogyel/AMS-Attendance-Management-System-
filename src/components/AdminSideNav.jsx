@@ -1,22 +1,40 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 function AdminSideNav({ addTitle }) {
-  const navigate = useNavigate(); //for redirecting
 
-  const style = "px-4 my-2 py-2 text-xl text-black"
-  const activeStyle = "px-4 my-2 py-2 text-xl text-white bg-blue-500 rounded-full"
+  const style = "px-4 my-2 py-2 text-base text-black font-semibold"
+  const activeStyle = "px-4 my-2 py-2 text-base text-white font-semibold bg-blue-500 rounded-full"
 
-  const isSelected = ( active, value ) => {
-    console.log(active)
-    if (active == true) {
-      addTitle(value)
-      return activeStyle
+  //When the user enters in the search bar
+  const [ search, setSearch ] = useState("")
+
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key == "Enter") {
+      search != "" && console.log(search)
+      setSearch("")
+      e.target.blur()
     }
-    else {
-      return style
-    }
+  }
+
+  //toggles the style when the user clicks the search
+  const [isSearch, setIsSearch] = useState(false);
+
+  const handleFocus = () => {
+    setIsSearch(true);
+  };
+
+  const handleBlur = () => {
+    setIsSearch(false);
+  };
+
+  //function for the user to log out
+  const logOut = () => {
+    //logout
   }
 
   return (
@@ -28,17 +46,7 @@ function AdminSideNav({ addTitle }) {
         <NavLink to="leave" end className={ ({isActive}) => isSelected(isActive, "Leave")}>Leave</NavLink>
         <NavLink to="attendance" className={ ({isActive}) => isSelected(isActive, "Attendance")}>Attendance</NavLink>
       </nav>
-      <button className="my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={()=>{
-           // Clear the tokens from localStorage
-           localStorage.removeItem('refreshToken');
-           localStorage.removeItem('accessToken');
-
-           //redirect to login page
-           navigate("/");
-
-        }}
-      >
+      <button className="my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Log Out
       </button>
     </div>

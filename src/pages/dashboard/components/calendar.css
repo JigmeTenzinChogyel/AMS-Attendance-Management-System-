@@ -1,0 +1,35 @@
+.rbc-btn-group button {
+    font-family: system-ui;
+}
+.rbc-btn-group button:hover {
+    color: white !important;
+    background: blue !important;
+}
+
+.rbc-toolbar-label {
+    margin: 3px 0 !important;
+}
+
+.rbc-day-bg:hover {
+    background: rgba(0, 0, 255, 0.461) !important;
+}
+
+.rbc-month-view {
+    border: none !important;
+}
+.rbc-month-view div {
+    border: none !important;
+}
+
+.rbc-month-header {
+    margin-bottom: 6px !important;
+}
+.rbc-month-header span {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    color: rgb(163, 163, 163);
+}
+
+.rbc-button-link {
+    font-size: 13px !important;
+}

@@ -49,6 +49,10 @@ function BarChart() {
         position: "top", // Adjust the legend position
       },
     },
+    title: {
+      display: true,
+      text: 'Chart.js Bar Chart',
+    },
     scales: {
       x: {
         title: {
