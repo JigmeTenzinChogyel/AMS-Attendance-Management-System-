@@ -5,7 +5,7 @@ import AdminHeader from "../components/AdminHeader"
 function Layout() {
 
   return (
-    <div className="Layout">
+    <div className="Layout font-Plus-Jakarta-Sans">
         <AdminHeader />
         <div className="flex w-full">
           <AdminSideNav />

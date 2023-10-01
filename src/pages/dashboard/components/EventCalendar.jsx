@@ -1,6 +1,7 @@
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import myEventsList from '../../../Data/MyEventList'
+import './calendar.css'
 
 function EventCalendar() {
 

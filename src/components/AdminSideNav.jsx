@@ -42,7 +42,7 @@ function AdminSideNav() {
   return (
     <div className="bg-white mt-24 py-4 w-1/6 flex flex-col items-center fixed z-10">
       <div className={isSearch ? "py-1 px-2 border border-blue-600 rounded-md w-3/4" : "py-1 px-2 border border-stale-800 rounded-md w-3/4" }>
-        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className='font-2xl text-black'/>
+        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className={ isSearch ? 'font-2xl text-blue-600' : 'font-2xl text-black'}/>
         <input 
         type='text' 
         placeholder='Search'
