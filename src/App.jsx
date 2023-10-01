@@ -12,13 +12,19 @@ import DashboardAttendance from "./pages/attendance/components/Dashboard"
 import SignIn from "./auth/SignIn"
 import SignUp from "./auth/SignUp"
 
+
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="signin" element={<SignIn />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="admin" element={<Layout />} >
+        <Route path="/" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/admin" element={<Layout />} >
           <Route index element={<Dashboard />} />
           <Route path="student" element={<Students />} />
           <Route path="event" element={<Events />} />
