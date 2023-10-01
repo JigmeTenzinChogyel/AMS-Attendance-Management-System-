@@ -29,7 +29,7 @@ function SignIn() {
         // Store refreshToken and accessToken in localStorage
         localStorage.setItem('refreshToken', refreshToken);
         localStorage.setItem('accessToken', accessToken);
-
+        
         // Redirect to another page or perform other actions as needed
         console.log('Login successful');
         navigate("/admin");
@@ -41,17 +41,6 @@ function SignIn() {
       console.error('Error during login:', error);
       // Handle login error
     }
-  };
-
-  //toggles the style when the user clicks the search
-  const [isInput, setIsInput] = useState(false); 
-
-  const handleFocus = () => {
-    setIsInput(true);
-  };
-
-  const handleBlur = () => {
-    setIsInput(false);
   };
 
   const handleChange = () => {
@@ -76,10 +65,8 @@ function SignIn() {
                 name="studentNumber"
                 placeholder = "xxxxxxxx"
                 value={studentNumber}
-                onFocus={ handleFocus }
-                onBlur={ handleBlur }
                 onChange={(e) => setStudentNumber(e.target.value)}
-                className={isInput ? "py-2 px-3 outline-blue-500" : "py-2 px-3 border"}
+                className="py-2 px-3 border"
                 required
               />
             </div>
@@ -91,10 +78,8 @@ function SignIn() {
                 name="password"
                 placeholder = "*****"
                 value={password}
-                onFocus={ handleFocus }
-                onBlur={ handleBlur }
                 onChange={(e) => setPassword(e.target.value)}
-                className={isInput ? "py-2 px-3 outline-blue-500" : "py-2 px-3 border"}
+                className="py-2 px-3 border"
                 required
               />
             </div>
@@ -109,9 +94,9 @@ function SignIn() {
               <div className="h-1 bg-slate-100 w-5/12"></div>
             </div>
             <div className="mt-5 text-center">
-              <span className="text-sm text-slate-500 mr-2">Dont have and Account?</span>
+              <span className="text-sm text-slate-500 mr-2">Dont have an Account?</span>
               <button 
-              className="text-blue-500 cursor-pointer"
+              className="text-blue-500"
               onClick={ handleChange }>Signup!</button>
             </div>
           </div>
