@@ -26,14 +26,14 @@ function AdminHeader() {
   }
   
   return (
-    <div className='py-4 w-full px-10 flex items-center fixed top-0 bg-white z-10'>
-        <div className=''>
-            <img src={logo} className='w-24 h-16'/>
+    <div className='w-full grid grid-cols-6 fixed top-0 bg-white z-10 pt-4'>
+        <div className='col-span-1 flex pl-6 justify-start items-center'>
+            <img src={logo} className='w-20 h-20'/>
         </div>
-        <div className='ml-40'>
+        <div className='col-span-1 flex justify-start items-center'>
             <h1 className='pl-5 text-3xl font-semibold flex items-center'>{ icon }{ title }</h1>
         </div>
-        <div className='w-full flex justify-end items-center gap-8'>
+        <div className='col-span-4 w-full flex justify-end items-center gap-8 pr-6'>
           <div className='cursor-pointer'>
             <FontAwesomeIcon icon="fa-solid fa-bell" className='text-2xl text-blue-600'/>
             <FontAwesomeIcon icon="fa-solid fa-circle" className='text-xs absolute text-red-500 -mt-1 -ml-3'/>

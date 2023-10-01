@@ -44,7 +44,7 @@ function SignIn() {
   };
 
   //toggles the style when the user clicks the search
-  const [isInput, setIsInput] = useState(false);
+  const [isInput, setIsInput] = useState(false); 
 
   const handleFocus = () => {
     setIsInput(true);
@@ -54,7 +54,6 @@ function SignIn() {
     setIsInput(false);
   };
 
-  console.log(isInput)
   const handleChange = () => {
     navigate("/signup")
   }
@@ -68,8 +67,8 @@ function SignIn() {
             <h1 className="text-3xl font-bold mt-2">Welcome Back!</h1>
             <p className="text-xs text-slate-400">Greetings! Welcome to member login</p>
           </div>
-          <form onSubmit={ handleSignIn } className="px-10 py-4">
-            <div className="flex flex-col gap-3 mb-4">
+          <form onSubmit={ handleSignIn } className="px-10 py-4 flex flex-col justify-between items-start gap-5">
+            <div className="flex flex-col gap-3 w-full">
               <label htmlFor="studentNumber" className="text-xs font-semibold">Student Number</label>
               <input
                 type="number"
@@ -84,7 +83,7 @@ function SignIn() {
                 required
               />
             </div>
-            <div className="flex flex-col gap-3 mb-2">
+            <div className="flex flex-col gap-3 w-full">
               <label htmlFor="password" className="text-xs font-semibold">Password</label>
               <input
                 type="password"
@@ -99,7 +98,7 @@ function SignIn() {
                 required
               />
             </div>
-            <button type="submit" className="mt-5 bg-blue-500 w-full py-3 px-2 text-sm text-white rounded-lg hover:bg-blue-400">
+            <button type="submit" className="mt-2 bg-blue-500 w-full py-3 px-2 text-sm text-white rounded-lg hover:bg-blue-400">
               Login
             </button>
           </form>
