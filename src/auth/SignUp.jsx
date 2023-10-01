@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './SignUp.css';
 import axios from 'axios'; // Import Axios
 import logo from '../assets/logo.png';
 import { useNavigate } from "react-router-dom";
@@ -18,13 +17,10 @@ function SignUp() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
- 
-
     if (password !== confirmPassword) {
       alert('Passwords do not match.');
       return;
     }
-
     try {
       // Create a data object to send to the server
       const data = {

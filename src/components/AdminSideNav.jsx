@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function AdminSideNav({ addTitle }) {
+function AdminSideNav() {
 
   const style = "px-4 my-2 py-2 text-base text-black font-semibold"
-  const activeStyle = "px-4 my-2 py-2 text-base text-white font-semibold bg-blue-500 rounded-full"
+  const activeStyle = "px-4 my-2 py-2 text-base text-white font-semibold bg-blue-500 rounded-lg"
 
   //When the user enters in the search bar
   const [ search, setSearch ] = useState("")
@@ -38,17 +40,44 @@ function AdminSideNav({ addTitle }) {
   }
 
   return (
-    <div className="bg-white mt-24 py-4 w-1/6 flex flex-col gap-36 items-center fixed">
-      <nav className="flex flex-col p-3 gap-2 w-3/4 justify-center">
-        <NavLink to="." end className={ ({isActive}) => isSelected(isActive, "Dashboard")}>Dashboard</NavLink>
-        <NavLink to="student" end className={ ({isActive}) => isSelected(isActive, "Student")}>Student</NavLink>
-        <NavLink to="event" end className={ ({isActive}) => isSelected(isActive, "Event")}>Event</NavLink>
-        <NavLink to="leave" end className={ ({isActive}) => isSelected(isActive, "Leave")}>Leave</NavLink>
-        <NavLink to="attendance" className={ ({isActive}) => isSelected(isActive, "Attendance")}>Attendance</NavLink>
-      </nav>
-      <button className="my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Log Out
-      </button>
+    <div className="bg-white mt-24 py-4 h-5/6 w-1/6 flex flex-col justify-between items-center fixed ">
+      <div>
+        <div className={
+          isSearch ? "flex items-center border border-blue-500 rounded-lg p-1" :
+          "flex items-center border border-stale-400 rounded-lg p-1"
+        }>
+          <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" className={ isSearch ? "mr-3 p-1 text-blue-500" : "mr-3 p-1"}/>
+          <input
+          name="search"
+          type="text"
+          placeholder="search"
+          onChange={ handleChange }
+          onFocus={ handleFocus }
+          onBlur={ handleBlur }
+          onKeyPress={ handleKeyPress }
+          value={search}
+          className="outline-none p-1"
+          />
+        </div>
+        <nav className="flex flex-col p-3 gap-3 w-full justify-center my-6">
+          <NavLink to="." end className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-compass" className="mr-3"/>Dashboard</NavLink>
+          <NavLink to="student" end className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-id-card" className="mr-3"/>Student</NavLink>
+          <NavLink to="event" end className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-calendar" className="mr-3"/>Event</NavLink>
+          <NavLink to="leave" end className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-file-circle-check" className="mr-3"/>Leave</NavLink>
+          <NavLink to="attendance" className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-file-pen" className="mr-3"/>Attendance</NavLink>
+        </nav>
+      </div>
+      <div className="border-slate-300 border-t w-full text-center pt-4">
+        <button onClick={ logOut } className="font-semibold">
+          <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" className="text-blue-500 mr-3"/>
+          Logout
+        </button>
+      </div>
     </div>
   );
 }
