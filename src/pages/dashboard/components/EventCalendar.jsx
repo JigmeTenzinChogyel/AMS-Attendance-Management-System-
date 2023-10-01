@@ -7,7 +7,7 @@ function EventCalendar() {
   const localizer = momentLocalizer(moment)
 
   return (
-    <div className="h-2/4 bg-white rounded-lg p-2">
+    <div className="h-3/4 p-2">
       <Calendar
       localizer={localizer}
       events={myEventsList}
