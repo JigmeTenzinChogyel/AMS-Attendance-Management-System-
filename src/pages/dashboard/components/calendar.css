@@ -14,7 +14,10 @@
     background: rgba(0, 0, 255, 0.461) !important;
 }
 
-.rbc-month-view, div {
+.rbc-month-view {
+    border: none !important;
+}
+.rbc-month-view div {
     border: none !important;
 }
 
