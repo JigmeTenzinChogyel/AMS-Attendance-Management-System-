@@ -5,7 +5,10 @@
     color: white !important;
     background: blue !important;
 }
-
+.rbc-toolbar {
+    display: flex;
+    flex-direction: column;
+}
 .rbc-toolbar-label {
     margin: 3px 0 !important;
 }

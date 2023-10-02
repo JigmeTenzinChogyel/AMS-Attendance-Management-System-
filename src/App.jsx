@@ -16,6 +16,7 @@ import Overview from "./pages/user/Overview"
 import UserAttendance from "./pages/user/Attendance"
 import UserLeave from "./pages/user/Leave"
 import UserReport from "./pages/user/Report"
+import TakeAttendance from "./pages/user/TakeAttendance"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="user" element={<UserLayout />} >
           <Route index element={ <Overview /> }/>
           <Route path="attendance" element={ <UserAttendance /> }/>
+          <Route path="take" element={<TakeAttendance />} />
           <Route path="leave" element={ <UserLeave /> }/>
           <Route path="report" element={ <UserReport /> }/>
         </Route>

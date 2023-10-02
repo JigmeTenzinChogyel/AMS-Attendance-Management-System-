@@ -8,7 +8,6 @@ function EventCalendar() {
   const localizer = momentLocalizer(moment)
 
   return (
-    <div className="h-3/4 p-2">
       <Calendar
       localizer={localizer}
       events={myEventsList}
@@ -20,7 +19,6 @@ function EventCalendar() {
       startAccessor="start"
       endAccessor="end"
     />
-    </div>
   )
 }
 
