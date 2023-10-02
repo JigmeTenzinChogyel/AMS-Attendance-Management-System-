@@ -19,6 +19,16 @@ function SignIn() {
         password,
       };
       console.log(data);
+      
+      if (password.length < 5) {
+        alert('Password should be at least 5 characters long.');
+        return;
+      }
+  
+      if (!/^\d{8}$/.test(studentNumber)) {
+        alert('Student Number should be exactly 8 digits long and consist of numbers only.');
+        return;
+      }
       // Send a POST request to the login endpoint
       const response = await axios.post('http://192.168.137.149:3000/api/auth/login', data);
       // Check the response status
