@@ -11,6 +11,11 @@ import EventAttendance  from "./pages/attendance/components/Events"
 import DashboardAttendance from "./pages/attendance/components/Dashboard"
 import SignIn from "./auth/SignIn"
 import SignUp from "./auth/SignUp"
+import UserProfile from "./pages/user/userprofile"
+import UserDetails from "./pages/user/userdetails"
+import ApplyLeave from "./pages/user/applyLeave"
+import UserLayout from "./layouts/UserLayout"
+
 
 function App() {
   return (
@@ -29,6 +34,12 @@ function App() {
             <Route path="event" element={<EventAttendance />} />
             <Route path="report" element={<Report />} />
           </Route>
+        </Route>
+        <Route path="user" element={<UserLayout />} >
+          <Route path="userprofile" element={<UserProfile />} />
+          <Route path="userdetails"  element={<UserDetails />} />
+          <Route path="ApplyLeave" element={<ApplyLeave />} />
+
         </Route>
       </Routes>
     </Router>
