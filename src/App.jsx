@@ -11,11 +11,11 @@ import EventAttendance  from "./pages/attendance/components/Events"
 import DashboardAttendance from "./pages/attendance/components/Dashboard"
 import SignIn from "./auth/SignIn"
 import SignUp from "./auth/SignUp"
-import UserProfile from "./pages/user/userprofile"
-import UserDetails from "./pages/user/userdetails"
-import ApplyLeave from "./pages/user/applyLeave"
 import UserLayout from "./layouts/UserLayout"
-
+import Overview from "./pages/user/Overview"
+import UserAttendance from "./pages/user/Attendance"
+import UserLeave from "./pages/user/Leave"
+import UserReport from "./pages/user/Report"
 
 function App() {
   return (
@@ -23,6 +23,12 @@ function App() {
       <Routes>
         <Route index element={<SignIn />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="user" element={<UserLayout />} >
+          <Route index element={ <Overview /> }/>
+          <Route path="attendance" element={ <UserAttendance /> }/>
+          <Route path="leave" element={ <UserLeave /> }/>
+          <Route path="report" element={ <UserReport /> }/>
+        </Route>
         <Route path="admin" element={<Layout />} >
           <Route index element={<Dashboard />} />
           <Route path="student" element={<Students />} />
@@ -34,12 +40,6 @@ function App() {
             <Route path="event" element={<EventAttendance />} />
             <Route path="report" element={<Report />} />
           </Route>
-        </Route>
-        <Route path="user" element={<UserLayout />} >
-          <Route path="userprofile" element={<UserProfile />} />
-          <Route path="userdetails"  element={<UserDetails />} />
-          <Route path="ApplyLeave" element={<ApplyLeave />} />
-
         </Route>
       </Routes>
     </Router>

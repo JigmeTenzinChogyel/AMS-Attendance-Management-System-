@@ -19,6 +19,9 @@ import
   faBell,
   faCalendarDays,
   faCircle,
+  faChevronDown,
+  faFile,
+
 } from '@fortawesome/free-solid-svg-icons'
 library.add( 
   faMagnifyingGlass, 
@@ -31,7 +34,9 @@ library.add(
   faFilePen,
   faBell,
   faCalendarDays,
-  faCircle)
+  faCircle,
+  faChevronDown,
+  faFile)
 
   ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
