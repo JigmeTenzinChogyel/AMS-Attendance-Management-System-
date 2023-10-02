@@ -20,7 +20,7 @@ function SignIn() {
       };
       console.log(data);
       // Send a POST request to the login endpoint
-      const response = await axios.post('http://10.2.22.67:3000/api/auth/login', data);
+      const response = await axios.post('http://192.168.137.149:3000/api/auth/login', data);
       // Check the response status
       if (response.status === 200) {
         // Assuming your API returns refreshToken and accessToken in the response
@@ -60,7 +60,7 @@ function SignIn() {
             <div className="flex flex-col gap-3 w-full">
               <label htmlFor="studentNumber" className="text-xs font-semibold">Student Number</label>
               <input
-                type="number"
+                type="text"
                 id="studentNumber"
                 name="studentNumber"
                 placeholder = "xxxxxxxx"

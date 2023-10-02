@@ -35,7 +35,7 @@ function SignUp() {
       };
 
       // Send a POST request to the registration endpoint
-      const response = await axios.post('http://10.2.22.67:3000/api/auth/register', data);
+      const response = await axios.post('http://192.168.137.149:3000/api/auth/register', data);
 
       // Check the response status
       if (response.status === 201) {
@@ -85,7 +85,7 @@ function SignUp() {
                 <div className="flex flex-col gap-3 w-2/5">
                   <label htmlFor="studentId" className="text-xs font-semibold">Student Number</label> {/* Changed label text */}
                   <input
-                    type="number"
+                    type="text"
                     id="studentId"
                     name="studentId" // Changed from studentNumber to studentId
                     placeholder="student id"
