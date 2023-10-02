@@ -23,6 +23,16 @@ function SignUp() {
       alert('Passwords do not match.');
       return;
     }
+    if (password.length < 5) {
+      alert('Password should be at least 5 characters long.');
+      return;
+    }
+
+    if (!/^\d{8}$/.test(studentId)) {
+      alert('Student Number should be exactly 8 digits long and consist of numbers only.');
+      return;
+    }
+    
     try {
       // Create a data object to send to the server
       const data = {
