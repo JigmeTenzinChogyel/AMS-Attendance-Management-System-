@@ -48,7 +48,7 @@ function SignIn() {
   }
 
   return (  
-    <div className='flex justify-center items-center h-screen bg-slate-50 font-Plus-Jakarta-Sans'>
+    <div className='flex justify-center items-center h-screen bg-slate-50 font-Roboto'>
       <div className="w-10/12 h-5/6 flex bg-white rounded-lg border">
         <div className='w-1/3'>
           <div className="flex flex-col items-center mt-10 mb-6 gap-1">
@@ -83,7 +83,7 @@ function SignIn() {
                 required
               />
             </div>
-            <button type="submit" className="mt-2 bg-blue-500 w-full py-3 px-2 text-sm text-white rounded-lg hover:bg-blue-400">
+            <button type="submit" className="mt-2 bg-blue-500 w-full py-3 px-2 text-xl text-white rounded-lg hover:bg-blue-400">
               Login
             </button>
           </form>
@@ -96,7 +96,7 @@ function SignIn() {
             <div className="mt-5 text-center">
               <span className="text-sm text-slate-500 mr-2">Dont have an Account?</span>
               <button 
-              className="text-blue-500"
+              className="text-blue-500 text-xl"
               onClick={ handleChange }>Signup!</button>
             </div>
           </div>

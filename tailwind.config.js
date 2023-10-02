@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'Plus-Jakarta-Sans': [ ' "Plus Jakarta Sans" ' ]
+        'Roboto': [ "Roboto" ]
       }
     },
   },

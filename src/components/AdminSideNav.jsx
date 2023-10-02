@@ -2,11 +2,14 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 function AdminSideNav() {
 
-  const style = "px-4 my-2 py-2 text-base text-black font-semibold"
-  const activeStyle = "px-4 my-2 py-2 text-base text-white font-semibold bg-blue-500 rounded-lg"
+  const navigate = useNavigate()
+
+  const style = "px-4 my-2 py-2 text-lg text-black font-semibold"
+  const activeStyle = "px-4 my-2 py-2 text-lg text-white font-semibold bg-blue-500 rounded-lg"
 
   //When the user enters in the search bar
   const [ search, setSearch ] = useState("")
@@ -36,11 +39,11 @@ function AdminSideNav() {
 
   //function for the user to log out
   const logOut = () => {
-    //logout
+    navigate('/')
   }
 
   return (
-    <div className="bg-white mt-24 py-4 h-5/6 w-1/6 flex flex-col justify-between items-center fixed ">
+    <div className=" bg-white mt-24 py-4 h-5/6 w-1/6 flex flex-col justify-between items-center fixed ">
       <div>
         <div className={
           isSearch ? "flex items-center border border-blue-500 rounded-lg p-1" :

@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="signin" element={<SignIn />} />
+        <Route index element={<SignIn />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="admin" element={<Layout />} >
           <Route index element={<Dashboard />} />

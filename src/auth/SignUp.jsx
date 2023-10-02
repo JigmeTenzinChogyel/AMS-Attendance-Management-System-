@@ -51,10 +51,10 @@ function SignUp() {
   };
 
   const handleChange = () => {
-    navigate("/signin")
+    navigate("/")
   }
   return (
-    <div className='flex justify-center items-center h-screen bg-slate-50 font-Plus-Jakarta-Sans'>
+    <div className='flex justify-center items-center h-screen bg-slate-50 font-Roboto'>
       <div className="w-10/12 flex bg-white rounded-lg border">
         <div className="w-2/6 bg-slate-100 flex flex-col justify-center items-center">
           <div className="flex flex-col items-center mt-10 mb-6 gap-1">
@@ -201,7 +201,7 @@ function SignUp() {
                 />
               </div>
               <div className="flex justify-center w-full">
-                <button type="submit" className="mt-1 bg-blue-500 w-2/5 py-3 px-2 text-sm text-white rounded-lg hover:bg-blue-400">
+                <button type="submit" className="mt-1 bg-blue-500 w-2/5 py-3 px-2 text-xl text-white rounded-lg hover:bg-blue-400">
                   Register
                 </button>
               </div>
@@ -212,7 +212,7 @@ function SignUp() {
             <div className="mt-2 text-center">
               <span className="text-sm text-slate-500 mr-2">Already have an Account?</span>
               <button 
-              className="text-blue-500"
+              className="text-blue-500 text-xl"
               onClick={ handleChange }>Signin!</button>
             </div>
           </div>
