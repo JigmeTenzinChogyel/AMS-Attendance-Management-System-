@@ -3,6 +3,7 @@ import axios from 'axios'; // Import Axios
 import logo from '../assets/logo.png';
 import { useNavigate } from "react-router-dom";
 import analyse from '../assets/analyse.svg'
+import checkmark from '../assets/checkmark.png'
 
 function SignUp() {
   const navigate = useNavigate();
@@ -39,8 +40,7 @@ function SignUp() {
 
       // Check the response status
       if (response.status === 201) {
-        alert('Registration successful.');
-        navigate("/"); // Notify the user
+        setIsVisible(isVisible => !isVisible);
       } else {
         alert('Registration failed.'); // Notify the user
       }
@@ -50,11 +50,30 @@ function SignUp() {
     }
   };
 
+  //popup
+  const [ isVisible, setIsVisible ] = useState(false)
+
+  const handleVisibility = () => {
+    setIsVisible(isVisible => !isVisible)
+    navigate("/"); // Notify the user
+  }
+
   const handleChange = () => {
     navigate("/")
   }
   return (
     <div className='flex justify-center items-center h-screen bg-slate-50 font-Roboto'>
+      <div onClick={ handleVisibility } className={
+        isVisible ? "font-Roboto flex-col gap-2 w-2/6 h-2/5 z-10 bg-white absolute -mt-24 rounded-lg flex justify-center items-center" :
+        "absolute invisible"
+      }>
+        <h1 className='text-3xl'>Login Sucessful</h1>
+        <img src={ checkmark } className='w-1/5 h-2/5'/>
+        <p className='text-sm text-stone-300'>Click anywhere to continue</p>
+      </div>
+      <div onClick={ handleVisibility } className={
+        isVisible ? 'w-full h-screen absolute bg-slate-700 opacity-50' : 'invisible'
+      }></div>
       <div className="w-10/12 flex bg-white rounded-lg border">
         <div className="w-2/6 bg-slate-100 flex flex-col justify-center items-center">
           <div className="flex flex-col items-center mt-10 mb-6 gap-1">
@@ -206,7 +225,7 @@ function SignUp() {
                 </button>
               </div>
               {registrationStatus && (
-                <div className="alert alert-info mt-3">{registrationStatus}</div>
+                <div className="alert alert-info text-sm text-red-500">{registrationStatus}</div>
               )}
             </form>
             <div className="mt-2 text-center">
