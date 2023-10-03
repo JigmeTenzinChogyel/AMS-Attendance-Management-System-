@@ -44,7 +44,7 @@ function AdminSideNav() {
   }
 
   return (
-    <div className=" bg-white mt-24 py-4 h-5/6 w-1/6 flex flex-col justify-between items-center fixed ">
+    <div className=" bg-white mt-24 py-4 h-full w-1/6 flex flex-col gap-32 items-center fixed ">
       <div>
         <div className={
           isSearch ? "flex items-center border border-blue-500 rounded-lg p-1" :

@@ -62,69 +62,66 @@ function CreateEvent() {
   };
 
   return (
-    <div className="mt-4">
-      <h2>Create Event</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="title">Title:</label>
+    <div className="w-4/5">
+      <h2 className='text-2xl font-semibold '>Create Event</h2>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="title" className="text-sm font-semibold text-slate-400">Title</label>
           <input
             type="text"
             id="title"
             name="title"
             value={formData.title}
             onChange={handleChange}
+            className="py-1 px-2 border w-fit"
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="description">Description:</label>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="description" className="text-sm font-semibold text-slate-400">Description:</label>
           <textarea
             id="description"
             name="description"
             value={formData.description}
             onChange={handleChange}
+            className="py-2 px-3 border w-1/2"
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="startDate">Start Date:</label>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="startDate" className="text-sm font-semibold text-slate-400">Start Date:</label>
           <input
             type="date"
             id="startDate"
             name="startDate"
             value={formData.startDate}
             onChange={handleChange}
+            className="py-2 px-3 border w-fit"
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="eventType">Event Type:</label>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="eventType" className="text-sm font-semibold text-slate-400">Event Type:</label>
           <select
             id="eventType"
             name="eventType"
             value={formData.eventType}
             onChange={handleChange}
+            className="py-2 px-3 border w-fit"
+            required
           >
             <option value="assembly">Assembly</option>
             <option value="supw">SUPW</option>
             <option value="others">Others</option>
           </select>
         </div>
-        <div>
-          <button
-            type="submit"
-            className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded mr-2"
-          >
+        <div className='flex flex-col gap-5 my-5'>
+          <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-2 px-3 rounded mr-2">
             Create Event
           </button>
-          <button
-            type="button"
-            className="bg-red-500 hover:bg-red-700 text-white font-semibold text-base py-1 px-2 rounded"
-            onClick={() => {
-              setFormData(initialFormData);
-              navigate(-1);
-            }}
-          >
+          <button type="button" 
+            className="bg-red-500 hover:bg-red-700 text-white font-semibold text-base py-2 px-3 rounded"
+            onClick={() => {setFormData(initialFormData); navigate(-1)}} >
             Cancel
           </button>
         </div>
