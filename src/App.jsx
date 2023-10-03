@@ -17,6 +17,12 @@ import UserAttendance from "./pages/user/Attendance"
 import UserLeave from "./pages/user/Leave"
 import UserReport from "./pages/user/Report"
 import TakeAttendance from "./pages/user/TakeAttendance"
+import CreateEvent from "./pages/events/components/CreateEvent"
+import EventLayout from "./layouts/EventLayout"
+import EditEvent from "./pages/events/components/EditEvent"
+import StudentLayout from "./layouts/StudentLayout"
+import CreateStudent from "./pages/student/components/CreateStudent"
+import EditStudent from "./pages/student/components/EditStudent"
 
 function App() {
   return (
@@ -33,8 +39,16 @@ function App() {
         </Route>
         <Route path="admin" element={<Layout />} >
           <Route index element={<Dashboard />} />
-          <Route path="student" element={<Students />} />
-          <Route path="event" element={<Events />} />
+          <Route path="student" element={<StudentLayout />} >
+            <Route index element={<Students />}/>
+            <Route path="create" element={<CreateStudent />} />
+            <Route path=":id" element={<EditStudent />} />
+          </Route>
+          <Route path="event" element={<EventLayout />} >
+            <Route index element={<Events />} />
+            <Route path="create" element={<CreateEvent />} />
+            <Route path=":id" element={<EditEvent />} />
+          </Route>
           <Route path="leave" element={<Leave />} />
           <Route path="attendance" element={<Attendance />}>
             <Route index element={<DashboardAttendance />} />

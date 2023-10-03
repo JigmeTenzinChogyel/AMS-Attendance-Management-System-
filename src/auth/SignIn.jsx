@@ -19,7 +19,6 @@ function SignIn() {
         studentId:studentNumber,
         password,
       };
-      console.log(data);
       
       if (password.length < 5) {
         alert('Password should be at least 5 characters long.');
@@ -31,23 +30,33 @@ function SignIn() {
         return;
       }
       // Send a POST request to the login endpoint
-      const response = await axios.post('http://192.168.137.149:3000/api/auth/login', data);
+      const response = await axios.post('http://192.168.137.32:3000/api/auth/login', data);
       // Check the response status
       if (response.status === 200) {
         // Assuming your API returns refreshToken and accessToken in the response
-        const { refreshToken, accessToken } = response.data;
+        const { 
+          refreshToken, 
+          accessToken, 
+          role,
+          student,  
+          classDetails
+        } = response.data;
 
         // Store refreshToken and accessToken in localStorage
         localStorage.setItem('refreshToken', refreshToken);
         localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('role', role);
+        localStorage.setItem('studentDetails', JSON.stringify(student));
+        localStorage.setItem('classDetails', JSON.stringify(classDetails));
         
         // Redirect to another page or perform other actions as needed
         setIsVisible(isVisible => !isVisible)
       } else {
         // Handle other response statuses or errors
-        console.log('Login failed');
+        alert('Login failed')
       }
     } catch (error) {
+      alert('Error during login')
       console.error('Error during login:', error);
       // Handle login error
     }
@@ -58,7 +67,11 @@ function SignIn() {
 
   const handleVisibility = () => {
     setIsVisible(isVisible => !isVisible)
-    navigate("/admin"); // Notify the user
+    if ( localStorage.getItem('role') === "ADMIN"){
+      navigate("/admin"); // Notify the user
+    } else {
+      navigate("/user"); // Notify the user
+    } 
   }
 
   const handleChange = () => {

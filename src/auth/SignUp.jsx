@@ -11,7 +11,7 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [gender, setGender] = useState('');
   const [studentId, setStudentId] = useState(''); // Changed from studentNumber to studentId
-  const [department, setDepartment] = useState('');
+  const [programme, setProgramme] = useState('');
   const [semester, setSemester] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -40,7 +40,7 @@ function SignUp() {
         email,
         gender,
         studentId, 
-        department,
+        programme,
         semester,
         password,
       };
@@ -157,16 +157,16 @@ function SignUp() {
               </div>
               <div className="flex justify-between items-center w-full gap-4">
                 <div className="flex flex-col gap-3 w-3/5">
-                  <label htmlFor="department" className="text-xs font-semibold">Department</label>
+                  <label htmlFor="programme" className="text-xs font-semibold">programme</label>
                   <select
-                    id="department"
-                    name="department"
-                    value={department}
-                    onChange={(e) => setDepartment(e.target.value)}
+                    id="programme"
+                    name="programme"
+                    value={programme}
+                    onChange={(e) => setProgramme(e.target.value)}
                     className="py-2 px-3 border"
                     required
                   >
-                    <option value="">Select Department</option>
+                    <option value="">Select programme</option>
                     <option value="Information technology">Information Technology</option>
                     <option value="electronics and communications engineering">Electronics and Communications Engineering</option>
                     <option value="electrical engineering">Electrical Engineering</option>

@@ -40,6 +40,7 @@ function AdminSideNav() {
   //function for the user to log out
   const logOut = () => {
     navigate('/')
+    localStorage.clear()
   }
 
   return (
@@ -62,14 +63,14 @@ function AdminSideNav() {
           className="outline-none p-1"
           />
         </div>
-        <nav className="flex flex-col p-3 gap-3 w-full justify-center my-6">
+        <nav className="flex flex-col p-3 gap-1 w-full justify-center my-3">
           <NavLink to="." end className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-compass" className="mr-3"/>Dashboard</NavLink>
-          <NavLink to="student" end className={ ({isActive}) => isActive ? activeStyle : style}>
+          <NavLink to="student" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-id-card" className="mr-3"/>Student</NavLink>
-          <NavLink to="event" end className={ ({isActive}) => isActive ? activeStyle : style}>
+          <NavLink to="event" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-calendar" className="mr-3"/>Event</NavLink>
-          <NavLink to="leave" end className={ ({isActive}) => isActive ? activeStyle : style}>
+          <NavLink to="leave" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-file-circle-check" className="mr-3"/>Leave</NavLink>
           <NavLink to="attendance" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-file-pen" className="mr-3"/>Attendance</NavLink>

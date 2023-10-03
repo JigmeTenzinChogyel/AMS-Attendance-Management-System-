@@ -23,6 +23,9 @@ import
   faFile,
   faClock,
   faFaceSmile,
+  faUserInjured,
+  faUserCheck,
+  faUserLargeSlash,
 
 } from '@fortawesome/free-solid-svg-icons'
 library.add( 
@@ -40,7 +43,10 @@ library.add(
   faChevronDown,
   faFile,
   faClock,
-  faFaceSmile)
+  faFaceSmile,
+  faUserInjured,
+  faUserCheck,
+  faUserLargeSlash)
 
   ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

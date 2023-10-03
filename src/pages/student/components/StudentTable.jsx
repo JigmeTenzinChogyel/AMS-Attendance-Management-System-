@@ -1,9 +1,12 @@
 import DataTable from "react-data-table-component";
 import { studentDetails } from "../../../Data/dummyStudent";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function StudentTable() {
   
+  const navigate = useNavigate()
+
   const [search, setSearch] = useState("");
   const [filteredSearch, setFilteredSearch] = useState(studentDetails);
 
@@ -44,13 +47,18 @@ function StudentTable() {
     },
     {
       name: "Edit",
-      selector: (row) => <button>Edit</button>,
+      selector: (row) => <button onClick={() => navigate(`${row.id}`)}>Edit</button>,
     },
     {
       name: "Delete",
-      selector: (row) => <button>Delete</button>,
+      selector: (row) => <button onClick={() => handleDelete(row)}>Delete</button>,
     },
   ];
+
+  const handleDelete = data => {
+    //handle Delete
+    console.log(data)
+  }
 
   useEffect(() => {
     const result = studentDetails.filter((data) => {

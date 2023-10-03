@@ -5,6 +5,8 @@ import { useState } from "react";
 
 function UserNav() {
 
+  const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
+
     //active link or nav bar
     const style = "px-4 my-2 py-2 text-lg text-black font-semibold"
     const activeStyle = "px-4 my-2 py-2 text-lg text-blue-500 font-semibold border-b-2 border-blue-500"
@@ -70,11 +72,11 @@ function UserNav() {
               />
             </div>
             <div className='cursor-pointer'>
-                <FontAwesomeIcon icon="fa-solid fa-bell" className='text-3xl'/>
+                <FontAwesomeIcon icon="fa-solid fa-bell" className='text-2xl'/>
                 <FontAwesomeIcon icon="fa-solid fa-circle" className='text-xs absolute text-red-600 -mt-1 -ml-3'/>
             </div>
             <div className="flex items-center gap-2 cursor-pointer">
-                <p>Name</p>
+                <p>{studentDetails.name}</p>
                 <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
             </div>
         </div>
