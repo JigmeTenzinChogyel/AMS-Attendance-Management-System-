@@ -119,6 +119,7 @@ function CreateEvent() {
             className="py-2 px-3 border w-fit"
             required
           >
+            <option value="">Select</option>
             <option value="assembly">Assembly</option>
             <option value="supw">SUPW</option>
             <option value="others">Others</option>
