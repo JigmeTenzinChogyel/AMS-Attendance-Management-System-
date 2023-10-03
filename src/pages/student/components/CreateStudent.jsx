@@ -17,7 +17,7 @@ const programOptions = [
 
 const semesterOptions = [
   "Select Semester",
-  "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+  "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x",
 ];
 
 function CreateStudent() {
@@ -43,11 +43,33 @@ function CreateStudent() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here, e.g., send data to the server
-    console.log(formData);
+    
+    try {
+      const apiUrl = 'http://192.168.137.32:3000/api/auth/register'; // Replace with your actual API URL
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      // Optionally, you can handle the success response here.
+      // For example, you can display a success message or redirect to another page.
+
+      console.log('User created successfully:', formData);
+      navigate('/success'); // Redirect to a success page
+    } catch (error) {
+      console.error('Error creating user:', error);
+    }
   };
+
 
   return (
     <div className="w-11/12">
@@ -91,8 +113,8 @@ function CreateStudent() {
               required
             >
               <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
             </select>
           </div>
         </div>
