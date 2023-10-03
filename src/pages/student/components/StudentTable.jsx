@@ -80,7 +80,9 @@ function StudentTable() {
         highlightOnHover
         actions={
           <div className="flex gap-5">
-            <button className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded">Add</button>
+            <button 
+            className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded"
+            onClick={() => navigate("create")}>Add</button>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold text-base py-1 px-2 rounded">Export</button>
           </div>
         }
