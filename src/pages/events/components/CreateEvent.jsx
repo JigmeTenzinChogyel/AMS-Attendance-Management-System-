@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function CreateEvent() {
-  const apiUrl = 'http://10.2.23.192:3000/api/events/createEvent';
+  const apiUrl = 'http://192.168.137.149:3000/api/events/createEvent';
   const navigate = useNavigate();
 
   const initialFormData = {
@@ -53,6 +53,15 @@ function CreateEvent() {
 
       const data = await response.json();
       console.log('Event created:', data);
+
+      // Check if the response status is 200 (OK)
+      if (response.status === 200) {
+        // Display an alert indicating that the event has been created
+        alert('Event created successfully');
+
+        // Redirect to the event page
+        navigate('/admin/event'); 
+      }
 
       // Clear the form after successful submission
       setFormData(initialFormData);
@@ -115,8 +124,10 @@ function CreateEvent() {
             <option value="others">Others</option>
           </select>
         </div>
-        <div className='flex flex-col gap-5 my-5'>
-          <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-2 px-3 rounded mr-2">
+        <div className='flex gap-5 my-5'>
+          <button 
+            type="submit" 
+            className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-2 px-3 rounded mr-2">
             Create Event
           </button>
           <button type="button" 
