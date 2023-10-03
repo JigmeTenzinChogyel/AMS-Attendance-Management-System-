@@ -2,7 +2,9 @@ import { Outlet } from "react-router-dom"
 
 function StudentLayout() {
   return (
-    <Outlet />
+    <div className="m-3 py-4 bg-white font-Roboto flex justify-center items-center">
+      <Outlet />
+    </div>
   )
 }
 
