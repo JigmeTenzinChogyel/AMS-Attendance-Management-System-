@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function CreateEvent() {
-  const apiUrl = 'http://10.2.23.192:3000/api/events/createEvent';
-  const navigate = useNavigate()
+  const apiUrl = 'http://192.168.137.149:3000/api/events/createEvent';
+  const navigate = useNavigate();
 
   const initialFormData = {
     title: '',
@@ -16,10 +16,24 @@ function CreateEvent() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+
+    if (name === 'startDate') {
+      const date = new Date(value);
+
+      if (!isNaN(date)) {
+        setFormData({
+          ...formData,
+          startTime: date.toISOString(),
+        });
+      } else {
+        console.error('Invalid date input');
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -39,6 +53,15 @@ function CreateEvent() {
 
       const data = await response.json();
       console.log('Event created:', data);
+
+      // Check if the response status is 200 (OK)
+      if (response.status === 200) {
+        // Display an alert indicating that the event has been created
+        alert('Event created successfully');
+
+        // Redirect to the event page
+        navigate('/admin/event'); 
+      }
 
       // Clear the form after successful submission
       setFormData(initialFormData);
