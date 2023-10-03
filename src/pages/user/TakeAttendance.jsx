@@ -25,6 +25,10 @@ function TakeAttendance() {
           selector: (row) => row.name,
         },
         {
+          name: "Event",
+          selector: (row) => row.name,
+        },
+        {
           name: "Status",
           selector: (row) => isEdit ? <input type="checkBox" className="ml-4" /> : row.role,
         },
