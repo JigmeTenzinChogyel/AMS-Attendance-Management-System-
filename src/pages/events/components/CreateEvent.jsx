@@ -60,7 +60,7 @@ function CreateEvent() {
         alert('Event created successfully');
 
         // Redirect to the event page
-        navigate('/admin/event'); 
+        navigate(-1); 
       }
 
       // Clear the form after successful submission
