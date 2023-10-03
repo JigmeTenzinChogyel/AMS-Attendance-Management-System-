@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CreateEvent() {
   const apiUrl = 'http://10.2.23.192:3000/api/events/createEvent';
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const initialFormData = {
     title: '',
@@ -16,10 +16,24 @@ function CreateEvent() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+
+    if (name === 'startDate') {
+      const date = new Date(value);
+
+      if (!isNaN(date)) {
+        setFormData({
+          ...formData,
+          startTime: date.toISOString(),
+        });
+      } else {
+        console.error('Invalid date input');
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -97,12 +111,20 @@ function CreateEvent() {
           </select>
         </div>
         <div>
-          <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded mr-2">
+          <button
+            type="submit"
+            className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded mr-2"
+          >
             Create Event
           </button>
-          <button type="button" 
+          <button
+            type="button"
             className="bg-red-500 hover:bg-red-700 text-white font-semibold text-base py-1 px-2 rounded"
-            onClick={() => {setFormData(initialFormData); navigate(-1)}} >
+            onClick={() => {
+              setFormData(initialFormData);
+              navigate(-1);
+            }}
+          >
             Cancel
           </button>
         </div>
