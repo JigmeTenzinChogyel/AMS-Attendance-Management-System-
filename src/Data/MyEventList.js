@@ -3,7 +3,7 @@ const myEventsList = [
       id: 1,
       title: 'Event 1',
       start: new Date(2023, 8, 15, 10, 0), // September 15, 2023, 10:00 AM
-      end: new Date(2023, 8, 15, 12, 0),   // September 15, 2023, 12:00 PM
+      end: new Date(2023, 8, 15, 10, 0),   // September 15, 2023, 12:00 PM
     },
     {
       id: 2,
