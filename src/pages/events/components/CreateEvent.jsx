@@ -101,8 +101,10 @@ function CreateEvent() {
             <option value="others">Others</option>
           </select>
         </div>
-        <div className='felx flex-col gap-5 my-5'>
-          <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-2 px-3 rounded mr-2">
+        <div className='flex gap-5 my-5'>
+          <button 
+            type="submit" 
+            className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-2 px-3 rounded mr-2">
             Create Event
           </button>
           <button type="button" 
