@@ -81,8 +81,8 @@ function CreateEvent() {
   }
 
   return (
-    <div className="w-4/5">
-      <h2 className='text-2xl font-semibold my-4'>Create Event</h2>
+    <div className="w-11/12">
+      <h2 className='text-xl font-semibold my-4'>Create Event</h2>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <div className="flex flex-col gap-2">
           <label htmlFor="title" className="text-sm font-semibold text-slate-400">Title:</label>

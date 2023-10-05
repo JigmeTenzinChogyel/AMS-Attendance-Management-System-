@@ -52,7 +52,7 @@ function EditStudent() {
 
   return (
     <div className="w-11/12">
-      <h1 className="text-xl font-semibold py-5">Edit Details</h1>
+      <h1 className="text-xl font-semibold my-4">Edit Details</h1>
       <form 
         onSubmit={handleSubmit} 
         className="flex flex-col justify-between items-start gap-4">
