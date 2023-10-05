@@ -74,7 +74,9 @@ function CreateStudent() {
   return (
     <div className="w-11/12">
       <h1 className="px-4 text-2xl font-semibold m-6">Register Student</h1>
-      <form onSubmit={handleSubmit} className="px-10 py-4 flex flex-col justify-between items-start gap-4">
+      <form 
+        onSubmit={handleSubmit} 
+        className="px-10 py-4 flex flex-col justify-between items-start gap-4">
         <div className="flex w-full gap-4">
           <div className="flex flex-col gap-3 w-1/3">
             <label htmlFor="name" className="text-xs font-semibold">Name</label>

@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom"
 
-function EventLayout() {
-
+function LeaveLayout() {
   return (
     <div className="m-3 py-4 bg-white font-Roboto flex justify-center items-center">
-        <Outlet/>
+      <Outlet />
     </div>
   )
 }
 
-export default EventLayout
+export default LeaveLayout

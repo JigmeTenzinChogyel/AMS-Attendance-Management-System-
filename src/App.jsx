@@ -23,6 +23,8 @@ import EditEvent from "./pages/events/components/EditEvent"
 import StudentLayout from "./layouts/StudentLayout"
 import CreateStudent from "./pages/student/components/CreateStudent"
 import EditStudent from "./pages/student/components/EditStudent"
+import LeaveLayout from "./layouts/LeaveLayout"
+import DetailLeave from "./pages/leave/components/DetailLeave"
 
 function App() {
   return (
@@ -49,7 +51,10 @@ function App() {
             <Route path="create" element={<CreateEvent />} />
             <Route path=":id" element={<EditEvent />} />
           </Route>
-          <Route path="leave" element={<Leave />} />
+          <Route path="leave" element={<LeaveLayout />} >
+            <Route index element={<Leave />} />
+            <Route path=":id" element={<DetailLeave />} />
+          </Route>
           <Route path="attendance" element={<Attendance />}>
             <Route index element={<DashboardAttendance />} />
             <Route path="student" element={<StudentAttendance />} />

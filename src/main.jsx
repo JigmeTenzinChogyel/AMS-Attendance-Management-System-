@@ -26,7 +26,15 @@ import
   faUserInjured,
   faUserCheck,
   faUserLargeSlash,
-
+  faCircleCheck,
+  faCircleXmark,
+  faEye,
+  faTrashCan,
+  faPenToSquare,
+  faPaperclip,
+  faSpinner,
+  faCheck,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons'
 library.add( 
   faMagnifyingGlass, 
@@ -46,7 +54,16 @@ library.add(
   faFaceSmile,
   faUserInjured,
   faUserCheck,
-  faUserLargeSlash)
+  faUserLargeSlash,
+  faCircleCheck,
+  faCircleXmark,
+  faEye,
+  faTrashCan,
+  faPenToSquare,
+  faPaperclip,
+  faSpinner,
+  faCheck,
+  faXmark)
 
   ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

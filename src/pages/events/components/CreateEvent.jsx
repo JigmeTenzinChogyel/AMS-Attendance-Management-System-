@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function CreateEvent() {
-  const apiUrl = 'http://192.168.137.149:3000/api/events/createEvent';
   const navigate = useNavigate();
 
+  // const apiUrl = 'http://192.168.137.149:3000/api/events/createEvent';
   const initialFormData = {
     title: '',
     description: '',
     startTime: '',
+    duration: '',
     eventType: '', // Default event type
   };
 
@@ -17,65 +18,74 @@ function CreateEvent() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'startDate') {
-      const date = new Date(value);
+    // if (name === 'startTime') {
+    //   const date = new Date(value);
 
-      if (!isNaN(date)) {
-        setFormData({
-          ...formData,
-          startTime: date.toISOString(),
-        });
-      } else {
-        console.error('Invalid date input');
-      }
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    }
+    //   if (!isNaN(date)) {
+    //     setFormData({
+    //       ...formData,
+    //       startTime: date.toISOString(),
+    //     });
+    //   } else {
+    //     console.error('Invalid date input');
+    //   }
+    // } else {
+    //   setFormData({
+    //     ...formData,
+    //     [name]: value,
+    //   });
+    // }
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleSubmit = async (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch(apiUrl, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+
+  //     const data = await response.json();
+  //     console.log('Event created:', data);
+
+  //     // Check if the response status is 200 (OK)
+  //     if (response.status === 200) {
+  //       // Display an alert indicating that the event has been created
+  //       alert('Event created successfully');
+
+  //       // Redirect to the event page
+  //       navigate(-1); 
+  //     }
+
+  //     // Clear the form after successful submission
+  //     setFormData(initialFormData);
+  //   } catch (error) {
+  //     console.error('Error submitting form:', error);
+  //   }
+  // };
+
+  const handleSubmit = e => {
     e.preventDefault();
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      console.log('Event created:', data);
-
-      // Check if the response status is 200 (OK)
-      if (response.status === 200) {
-        // Display an alert indicating that the event has been created
-        alert('Event created successfully');
-
-        // Redirect to the event page
-        navigate(-1); 
-      }
-
-      // Clear the form after successful submission
-      setFormData(initialFormData);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
-  };
+    console.log(formData)
+  }
 
   return (
     <div className="w-4/5">
-      <h2 className='text-2xl font-semibold '>Create Event</h2>
+      <h2 className='text-2xl font-semibold my-4'>Create Event</h2>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <div className="flex flex-col gap-2">
-          <label htmlFor="title" className="text-sm font-semibold text-slate-400">Title</label>
+          <label htmlFor="title" className="text-sm font-semibold text-slate-400">Title:</label>
           <input
             type="text"
             id="title"
@@ -97,17 +107,31 @@ function CreateEvent() {
             required
           />
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="startDate" className="text-sm font-semibold text-slate-400">Start Date:</label>
-          <input
-            type="date"
-            id="startDate"
-            name="startDate"
-            value={formData.startDate}
-            onChange={handleChange}
-            className="py-2 px-3 border w-fit"
-            required
-          />
+        <div  className="flex gap-2">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="startTime" className="text-sm font-semibold text-slate-400">Start Date:</label>
+            <input
+              type="date"
+              id="startTime"
+              name="startTime"
+              value={formData.startTime}
+              onChange={handleChange}
+              className="py-2 px-3 border w-fit"
+              required
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="duration" className="text-sm font-semibold text-slate-400">Duration:</label>
+            <input
+              type="text"
+              id="duration"
+              name="duration"
+              value={formData.duration}
+              onChange={handleChange}
+              className="py-2 px-3 border w-fit"
+              required
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="eventType" className="text-sm font-semibold text-slate-400">Event Type:</label>
