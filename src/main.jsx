@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import './App.jsx'
-
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import 
@@ -34,7 +34,9 @@ import
   faPaperclip,
   faSpinner,
   faCheck,
-  faXmark
+  faXmark,
+  faFileLines,
+  faAngleDown,
 } from '@fortawesome/free-solid-svg-icons'
 library.add( 
   faMagnifyingGlass, 
@@ -63,7 +65,9 @@ library.add(
   faPaperclip,
   faSpinner,
   faCheck,
-  faXmark)
+  faXmark,
+  faFileLines,
+  faAngleDown)
 
   ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

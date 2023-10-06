@@ -8,8 +8,8 @@ function AdminSideNav() {
 
   const navigate = useNavigate()
 
-  const style = "px-4 my-2 py-2 text-lg text-black font-semibold"
-  const activeStyle = "px-4 my-2 py-2 text-lg text-white font-semibold bg-blue-500 rounded-lg"
+  const style = "px-4 my-2 py-2 text-black font-semibold"
+  const activeStyle = "px-4 my-2 py-2 text-white font-semibold bg-blue-500 rounded-lg"
 
   //When the user enters in the search bar
   const [ search, setSearch ] = useState("")
@@ -44,7 +44,7 @@ function AdminSideNav() {
   }
 
   return (
-    <div className=" bg-white mt-24 py-4 h-full w-1/6 flex flex-col gap-32 items-center fixed ">
+    <div className=" bg-white mt-20 pt-6 pb-4 h-full w-1/6 flex flex-col gap-16 items-center fixed ">
       <div>
         <div className={
           isSearch ? "flex items-center border border-blue-500 rounded-lg p-1" :
@@ -63,17 +63,21 @@ function AdminSideNav() {
           className="outline-none p-1"
           />
         </div>
-        <nav className="flex flex-col p-3 gap-1 w-full justify-center my-3">
+        <nav className="flex flex-col p-3 w-full justify-center my-2">
           <NavLink to="." end className={ ({isActive}) => isActive ? activeStyle : style}>
-          <FontAwesomeIcon icon="fa-solid fa-compass" className="mr-3"/>Dashboard</NavLink>
+          <FontAwesomeIcon icon="fa-solid fa-compass" className="mr-3"/>Overview</NavLink>
+          <NavLink to="attendance" className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-file-pen" className="mr-3"/>Attendance</NavLink>
+          <NavLink to="assign" className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-user-check" className="mr-3"/>Assign</NavLink>
           <NavLink to="student" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-id-card" className="mr-3"/>Student</NavLink>
           <NavLink to="event" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-calendar" className="mr-3"/>Event</NavLink>
           <NavLink to="leave" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-file-circle-check" className="mr-3"/>Leave</NavLink>
-          <NavLink to="attendance" className={ ({isActive}) => isActive ? activeStyle : style}>
-          <FontAwesomeIcon icon="fa-solid fa-file-pen" className="mr-3"/>Attendance</NavLink>
+          <NavLink to="report" className={ ({isActive}) => isActive ? activeStyle : style}>
+          <FontAwesomeIcon icon="fa-solid fa-file-lines" className="mr-3"/>Report</NavLink>
         </nav>
       </div>
       <div className="border-slate-300 border-t w-full text-center pt-4">

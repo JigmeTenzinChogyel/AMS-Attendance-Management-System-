@@ -3,12 +3,12 @@ import Layout from "./layouts/Layout"
 import Students from "./pages/student/Students"
 import Events from "./pages/events/Events"
 import Leave from "./pages/leave/Leave"
-import Attendance from "./pages/attendance/Attendance"
+import AttendanceLayout from "./layouts/AttendanceLayout"
 import Dashboard from "./pages/dashboard/Dashboard"
 import StudentAttendance from "./pages/attendance/components/Student"
-import Report from "./pages/attendance/components/Report"
+import Report from "./pages/report/Report"
 import EventAttendance  from "./pages/attendance/components/Events"
-import DashboardAttendance from "./pages/attendance/components/Dashboard"
+import DashboardAttendance from "./pages/attendance/Dashboard"
 import SignIn from "./auth/SignIn"
 import SignUp from "./auth/SignUp"
 import UserLayout from "./layouts/UserLayout"
@@ -25,6 +25,9 @@ import CreateStudent from "./pages/student/components/CreateStudent"
 import EditStudent from "./pages/student/components/EditStudent"
 import LeaveLayout from "./layouts/LeaveLayout"
 import DetailLeave from "./pages/leave/components/DetailLeave"
+import Assign from "./pages/assign/Assign"
+import Notification from "./pages/notification/Notification"
+import AdminProfile from "./pages/admin/AdminProfile"
 
 function App() {
   return (
@@ -41,6 +44,8 @@ function App() {
         </Route>
         <Route path="admin" element={<Layout />} >
           <Route index element={<Dashboard />} />
+          <Route path="notification" element={<Notification />} />
+          <Route path="profile" element={<AdminProfile />} />
           <Route path="student" element={<StudentLayout />} >
             <Route index element={<Students />}/>
             <Route path="create" element={<CreateStudent />} />
@@ -55,12 +60,13 @@ function App() {
             <Route index element={<Leave />} />
             <Route path=":id" element={<DetailLeave />} />
           </Route>
-          <Route path="attendance" element={<Attendance />}>
+          <Route path="attendance" element={<AttendanceLayout />}>
             <Route index element={<DashboardAttendance />} />
             <Route path="student" element={<StudentAttendance />} />
             <Route path="event" element={<EventAttendance />} />
-            <Route path="report" element={<Report />} />
           </Route>
+          <Route path="assign" element={<Assign />} />
+          <Route path="report" element={<Report />} />
         </Route>
       </Routes>
     </Router>
