@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 function AttendanceTable() {
   
-  const [search, setSearch] = useState("");
-  const [filteredSearch, setFilteredSearch] = useState(studentDetails);
+  // const [search, setSearch] = useState("");
+  // const [filteredSearch, setFilteredSearch] = useState(studentDetails);
 
   const columns = [
     {
@@ -44,18 +44,21 @@ function AttendanceTable() {
     },
   ];
 
-  useEffect(() => {
-    const result = studentDetails.filter((data) => {
-      return data.stdNo.toLowerCase().includes(search.toLowerCase()); // Use includes() for substring matching
-    });
-    setFilteredSearch(result);
-  }, [search]);
+  // useEffect(() => {
+  //   const result = studentDetails.filter((data) => {
+  //     return data.stdNo.toLowerCase().includes(search.toLowerCase()); // Use includes() for substring matching
+  //   });
+  //   setFilteredSearch(result);
+  // }, [search]);
 
   return (
     <div className="py-5 px-10 mt-4 rounded-lg">
       <DataTable
         columns={columns}
-        data={filteredSearch}
+        data={
+          // filteredSearch
+          []
+        }
         title="Your Attendance details"
         pagination
         fixedHeader
@@ -65,16 +68,16 @@ function AttendanceTable() {
         actions={
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold text-base py-1 px-2 rounded">Export</button>
         }
-        subHeader
-        subHeaderComponent={
-          <input
-            type="text"
-            placeholder="event"
-            className="border border-blue-800 rounded-md py-1 px-3 focus:ring-blue-500 focus:border-blue-500"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        }
+        // subHeader
+        // subHeaderComponent={
+        //   <input
+        //     type="text"
+        //     placeholder="event"
+        //     className="border border-blue-800 rounded-md py-1 px-3 focus:ring-blue-500 focus:border-blue-500"
+        //     value={search}
+        //     onChange={(e) => setSearch(e.target.value)}
+        //   />
+        // }
       />
     </div>
   );

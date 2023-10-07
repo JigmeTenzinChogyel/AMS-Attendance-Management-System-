@@ -28,6 +28,8 @@ import DetailLeave from "./pages/leave/components/DetailLeave"
 import Assign from "./pages/assign/Assign"
 import Notification from "./pages/notification/Notification"
 import AdminProfile from "./pages/admin/AdminProfile"
+import UserNotification from "./pages/user/UserNotification"
+import UserAttendanceLayout from "./layouts/UserAttendanceLayout"
 
 function App() {
   return (
@@ -37,10 +39,13 @@ function App() {
         <Route path="signup" element={<SignUp />} />
         <Route path="user" element={<UserLayout />} >
           <Route index element={ <Overview /> }/>
-          <Route path="attendance" element={ <UserAttendance /> }/>
-          <Route path="take" element={<TakeAttendance />} />
+          <Route path="attendance" element={ <UserAttendanceLayout /> }>
+            <Route index element={<UserAttendance />}/>
+            <Route path=":id" element={<TakeAttendance />} />
+          </Route>
           <Route path="leave" element={ <UserLeave /> }/>
           <Route path="report" element={ <UserReport /> }/>
+          <Route path="notification" element={ <UserNotification /> }/>
         </Route>
         <Route path="admin" element={<Layout />} >
           <Route index element={<Dashboard />} />

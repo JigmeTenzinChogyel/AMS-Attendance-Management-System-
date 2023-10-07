@@ -14,11 +14,11 @@ function Report() {
   })
 
   return (
-    <div className="m-3 px-4 bg-white font-Roboto flex flex-col">
+    <div className="m-3 p-4 bg-white font-Roboto flex flex-col">
       <div ref={componentPDF} style={{width: "100%"}} className="m-3 px-4 bg-white font-Roboto flex flex-col justify-center items-center">
         <ReportHead />
         <div className="flex gap-1 w-full mt-4 p-1">
-          <h2 className="font-bold">Current Date:</h2>
+          <h2 className="font-bold">Report Date:</h2>
           <h3>{getCurrentDate()}</h3>
         </div>
       </div>

@@ -2,10 +2,14 @@ import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function UserNav() {
+  const navigate = useNavigate()
 
-  const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
+  // const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
+  const studentDetails = "Jigme"
+  const role = "councilor"
 
     //active link or nav bar
     const style = "px-4 my-2 py-2 text-lg text-black font-semibold"
@@ -36,6 +40,10 @@ function UserNav() {
         setIsSearch(false);
     };
 
+    const handleLogout = () => {
+      //handle Logout
+    }
+
   return (
     <div className="bg-white w-full flex justify-between items-center px-5 py-2 top-0 fixed z-10 border-b">
         <div className="flex items-center gap-6 text-lg font-semibold">
@@ -43,9 +51,12 @@ function UserNav() {
             <NavLink to="." end className={({isActive}) => isActive ? activeStyle : style}>
                 <FontAwesomeIcon icon="fa-solid fa-compass" className="mr-2"/>Overview
             </NavLink>
-            <NavLink to="attendance" end className={({isActive}) => isActive ? activeStyle : style}>
+            {
+              role == "councilor" &&             
+              <NavLink to="attendance" className={({isActive}) => isActive ? activeStyle : style}>
                 <FontAwesomeIcon icon="fa-solid fa-file-pen" className="mr-2"/>Attendance
-            </NavLink>
+              </NavLink>
+            }
             <NavLink to="leave" end className={({isActive}) => isActive ? activeStyle : style}>
                 <FontAwesomeIcon icon="fa-solid fa-file-circle-check" className="mr-2"/>Leave
             </NavLink>
@@ -71,13 +82,15 @@ function UserNav() {
               className="outline-none p-1"
               />
             </div>
-            <div className='cursor-pointer'>
-                <FontAwesomeIcon icon="fa-solid fa-bell" className='text-2xl'/>
+            <div className='cursor-pointer' onClick={() => navigate("notification")}>
+                <FontAwesomeIcon icon="fa-solid fa-bell" className='text-2xl text-blue-500'/>
                 <FontAwesomeIcon icon="fa-solid fa-circle" className='text-xs absolute text-red-600 -mt-1 -ml-3'/>
             </div>
             <div className="flex items-center gap-2 cursor-pointer">
                 <p>{studentDetails.name}</p>
-                <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
+                <FontAwesomeIcon 
+                  icon="fa-solid fa-arrow-right-from-bracket"
+                  onClick={ handleLogout } />
             </div>
         </div>
     </div>

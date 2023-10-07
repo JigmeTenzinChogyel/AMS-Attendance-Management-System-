@@ -1,24 +1,30 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useNavigate } from "react-router-dom"
 
 function Profile() {
 
-    const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
-    const classDetails = JSON.parse(localStorage.getItem('classDetails'))
-    const role = localStorage.getItem('role')
+    // const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
+    // const classDetails = JSON.parse(localStorage.getItem('classDetails'))
+    // const role = localStorage.getItem('role')
 
-    const navigate = useNavigate()
-
-    const handleCLick = () => {
-        navigate("take")
-    }
+    // const classDetails = JSON.parse(localStorage.getItem('classDetails'))
+    // const role = localStorage.getItem('role')
+    const studentDetails = {
+        name: "John Doe",
+        studentId: "123456",
+        gender: "Male",
+        email: "john.doe@example.com",
+      };
+      const classDetails = {
+        programme: "Computer Science",
+      };
+      const role = "Student";
 
     const cardStyle = "w-1/4 flex items-center gap-4 rounded-lg border border-slate-300 bg-white py-4 px-6"
 
   return (
     <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold">{studentDetails.name}</h1>
+            <h2 className="text-4xl font-bold">{studentDetails.name}</h2>
             <h4 className="text-lg font-semibold">{studentDetails.studentId}</h4>
             <p className="text-lg font-semibold">{studentDetails.gender}</p>
         </div>
@@ -74,14 +80,6 @@ function Profile() {
                 </div>
             </div>
         </div>
-        {
-            role == "Councilor" &&  
-            <button
-            className="bg-blue-500 w-fit text-xl font-semibold text-white p-5 rounded-lg active:bg-blue-400 hover:bg-blue-600"
-            onClick={ handleCLick }>
-                Take Attendance
-            </button>
-        }
     </div>
   )
 }

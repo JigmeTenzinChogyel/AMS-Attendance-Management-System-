@@ -1,10 +1,14 @@
 import DataTable from "react-data-table-component";
 import { studentDetails } from "../../Data/dummyStudent.js";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 function TakeAttendance() {
 
-    const [ isEdit, setIsEdit ] = useState( false )
+  const navigate = useNavigate()
+
+  const [ isEdit, setIsEdit ] = useState( false )
 
     const handleEdit = () => {
         setIsEdit((isEdit) => !isEdit)
@@ -35,15 +39,22 @@ function TakeAttendance() {
     ];
 
   return (
-    <div className="flex justify-center items-center">
-        <div className="pt-2 w-2/3 mt-4 rounded-lg">
+    <div className="w-full flex flex-col justify-center items-center">
+        <div className="pt-2 w-4/5 mt-6 rounded-lg">
+          <div className='flex gap-4 items-center mb-4'>
+            <FontAwesomeIcon 
+                icon="fa-solid fa-arrow-left" 
+                className='text-2xl cursor-pointer' 
+                onClick={() => navigate(-1)} />
+            <h2 className="text-2xl font-semibold">3 IT</h2>
+        </div>
             <DataTable
               columns={columns}
               data={studentDetails}
-              title="Assigned: 3 IT"
+              className="border"
               pagination
               fixedHeader
-              fixedHeaderScrollHeight="450px"
+              fixedHeaderScrollHeight="550px"
               selectableRowsHighlight
               highlightOnHover
               actions={
@@ -53,7 +64,7 @@ function TakeAttendance() {
                         "bg-blue-500 hover:bg-blue-700 text-white font-semibold text-base py-1 px-3 rounded"
                     }
                     onClick={ handleEdit }>
-                    { isEdit ? "Save" : "Edit"}
+                    { isEdit ? "Save" : "Take"}
                 </button>
               }
             />

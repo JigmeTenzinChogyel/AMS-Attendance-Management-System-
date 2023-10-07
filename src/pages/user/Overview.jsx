@@ -5,7 +5,7 @@ import Profile from "./overview/Profile"
 
 function Overview() {
   return (
-    <div className="flex justify-between py-6 h-full">
+    <div className="flex justify-between py-6 w-11/12">
         <div className="w-2/3 pl-10 flex flex-col gap-6">
             <h1 className="border-l-8 border-blue-500 text-2xl font-bold pl-4 py-1">User Details</h1>
             <Profile />

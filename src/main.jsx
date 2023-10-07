@@ -37,6 +37,7 @@ import
   faXmark,
   faFileLines,
   faAngleDown,
+  faArrowLeft,
 } from '@fortawesome/free-solid-svg-icons'
 library.add( 
   faMagnifyingGlass, 
@@ -67,7 +68,8 @@ library.add(
   faCheck,
   faXmark,
   faFileLines,
-  faAngleDown)
+  faAngleDown,
+  faArrowLeft)
 
   ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
