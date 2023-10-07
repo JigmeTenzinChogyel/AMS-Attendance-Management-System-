@@ -26,3 +26,24 @@ export const eventToday = (inputDate) => {
     return false;
   }
 };
+
+export function getCurrentDate() {
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = months[currentDate.getMonth()];
+  const day = currentDate.getDate();
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
+  const amOrPm = hours >= 12 ? "pm" : "am";
+  const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+  const formattedDate = `${month} ${day}, ${year}, ${formattedHours}:${formattedMinutes} ${amOrPm}`;
+  
+  return formattedDate;
+}
