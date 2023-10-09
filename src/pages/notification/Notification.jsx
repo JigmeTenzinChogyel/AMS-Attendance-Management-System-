@@ -28,7 +28,7 @@ const notifications = [
   // Add more notifications here...
 ];
 
-const itemsPerPage = 4;
+const itemsPerPage = 2;
 
 function Notification() {
   const [itemOffset, setItemOffset] = useState(0);

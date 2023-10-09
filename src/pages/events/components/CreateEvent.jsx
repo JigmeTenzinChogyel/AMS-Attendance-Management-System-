@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Assign from './Assign';
 
 function CreateEvent() {
   const navigate = useNavigate();
+  const [ isView, setIsView ] = useState(false)
 
   // const apiUrl = 'http://192.168.137.149:3000/api/events/createEvent';
   const initialFormData = {
@@ -75,15 +77,21 @@ function CreateEvent() {
   //   }
   // };
 
+  const handleView = data => {
+    data == 0 && setIsView(!isView)
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(formData)
+    setIsView(!isView)
   }
 
   return (
     <div className="w-11/12">
-      <h2 className='text-xl font-semibold my-4'>Create Event</h2>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+      <h2 className='text-xl font-semibold my-4'>{ isView? "Assign" : "Create Event" }</h2>
+      <form 
+        onSubmit={handleSubmit}
+        className = {isView ? 'hidden' : 'flex flex-col gap-4'}>
         <div className="flex flex-col gap-2">
           <label htmlFor="title" className="text-sm font-semibold text-slate-400">Title:</label>
           <input
@@ -162,6 +170,9 @@ function CreateEvent() {
           </button>
         </div>
       </form>
+      <div className={ isView ? "" : "hidden"}>
+        <Assign handleView={ handleView } />
+      </div>
     </div>
   );
 }
