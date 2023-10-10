@@ -129,7 +129,7 @@ function CreateEvent() {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="duration" className="text-sm font-semibold text-slate-400">Duration:</label>
+            <label htmlFor="duration" className="text-sm font-semibold text-slate-400">Duration in hours:</label>
             <input
               type="text"
               id="duration"
@@ -161,7 +161,7 @@ function CreateEvent() {
           <button 
             type="submit" 
             className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-2 px-3 rounded mr-2">
-            Create Event
+            Assign
           </button>
           <button type="button" 
             className="bg-red-500 hover:bg-red-700 text-white font-semibold text-base py-2 px-3 rounded"
@@ -171,7 +171,7 @@ function CreateEvent() {
         </div>
       </form>
       <div className={ isView ? "" : "hidden"}>
-        <Assign handleView={ handleView } />
+        <Assign handleView={ handleView } formData={ formData } />
       </div>
     </div>
   );

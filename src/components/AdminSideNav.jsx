@@ -18,14 +18,6 @@ function AdminSideNav() {
     setSearch(e.target.value)
   }
 
-  const handleKeyPress = (e) => {
-    if (e.key == "Enter") {
-      search != "" && console.log(search)
-      setSearch("")
-      e.target.blur()
-    }
-  }
-
   //toggles the style when the user clicks the search
   const [isSearch, setIsSearch] = useState(false);
 
@@ -44,7 +36,7 @@ function AdminSideNav() {
   }
 
   return (
-    <div className=" bg-white mt-20 pt-6 pb-4 h-full w-1/6 flex flex-col gap-16 items-center fixed ">
+    <div className=" bg-white mt-20 pt-6 pb-4 h-full w-1/6 flex flex-col gap-32 items-center fixed ">
       <div>
         <div className={
           isSearch ? "flex items-center border border-blue-500 rounded-lg p-1" :
@@ -58,7 +50,6 @@ function AdminSideNav() {
           onChange={ handleChange }
           onFocus={ handleFocus }
           onBlur={ handleBlur }
-          onKeyPress={ handleKeyPress }
           value={search}
           className="outline-none p-1"
           />
@@ -68,8 +59,6 @@ function AdminSideNav() {
           <FontAwesomeIcon icon="fa-solid fa-compass" className="mr-3"/>Overview</NavLink>
           <NavLink to="attendance" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-file-pen" className="mr-3"/>Attendance</NavLink>
-          <NavLink to="assign" className={ ({isActive}) => isActive ? activeStyle : style}>
-          <FontAwesomeIcon icon="fa-solid fa-user-check" className="mr-3"/>Assign</NavLink>
           <NavLink to="student" className={ ({isActive}) => isActive ? activeStyle : style}>
           <FontAwesomeIcon icon="fa-solid fa-id-card" className="mr-3"/>Student</NavLink>
           <NavLink to="event" className={ ({isActive}) => isActive ? activeStyle : style}>

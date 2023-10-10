@@ -138,7 +138,7 @@ function SignIn() {
             <div className="mt-5 text-center">
               <span className="text-sm text-slate-500 mr-2">Dont have an Account?</span>
               <button 
-              className="text-blue-500 text-xl"
+              className="text-blue-500"
               onClick={ handleChange }>Signup!</button>
             </div>
           </div>

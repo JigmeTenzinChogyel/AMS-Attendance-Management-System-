@@ -28,9 +28,6 @@ function AdminHeader() {
   } else if (pathname.includes("/admin/report")) {
     title = "Report"
     icon = <FontAwesomeIcon icon="fa-solid fa-file-lines" className="text-blue-600 mr-3"/>
-  } else if (pathname.includes("/admin/assign")) {
-    title = "Assign"
-    icon = <FontAwesomeIcon icon="fa-solid fa-user-check" className="text-blue-600 mr-3"/>
   }
   
   return (

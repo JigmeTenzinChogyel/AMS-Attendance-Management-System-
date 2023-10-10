@@ -25,7 +25,6 @@ import CreateStudent from "./pages/student/components/CreateStudent"
 import EditStudent from "./pages/student/components/EditStudent"
 import LeaveLayout from "./layouts/LeaveLayout"
 import DetailLeave from "./pages/leave/components/DetailLeave"
-import Assign from "./pages/assign/Assign"
 import Notification from "./pages/notification/Notification"
 import AdminProfile from "./pages/admin/AdminProfile"
 import UserNotification from "./pages/user/UserNotification"
@@ -70,7 +69,6 @@ function App() {
             <Route path="student" element={<StudentAttendance />} />
             <Route path="event" element={<EventAttendance />} />
           </Route>
-          <Route path="assign" element={<Assign />} />
           <Route path="report" element={<Report />} />
         </Route>
       </Routes>

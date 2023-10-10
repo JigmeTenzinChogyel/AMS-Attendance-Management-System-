@@ -1,35 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { generateCombinations } from "../../../utils/assign";
 import { generateAbbreviation } from "../../../utils/abbreviation";
+import { IP } from "../../../utils/ip";
 
-function Assign({ handleView }) {
+function Assign({ handleView , formData }) {
 
-    const studentDetails = [
-        {
-          "id": "1",
-          "name": "John Doe",
-          "email": "johndoe@example.com",
-          "studentId": "123456",
-          "programme": "Information Technology",
-          "semester": "iii",
-          "gender": "Male",
-          "role": "Student",
-          "assign": []
-        },
-        {
-          "id": "2",
-          "name": "Jane Smith",
-          "email": "janesmith@example.com",
-          "studentId": "789012",
-          "programme": "Electronics and Communications Engineering",
-          "semester": "iv",
-          "gender": "Female",
-          "role": "Student",
-          "assign": []
-        },
-    ]
+  const [studentDetails, setStudentDetails] = useState([]);
+
+  const apiUrl = `http://${IP}:3000/api/student/get-all-councilor`;
+
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Initialize the "assign" property with an empty array for each student
+        const studentsWithAssign = data.map((student) => ({
+          ...student,
+          assign: [],
+        }));
+        setStudentDetails(studentsWithAssign);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
     const programme = [
         {
@@ -96,14 +97,15 @@ function Assign({ handleView }) {
             "name": "5"
         },
     ];
-
+    
     const [ isAssign, setIsAssign ] = useState(false)
     const [ councilor, setCouncilor ] = useState("")
-    const result = generateCombinations(programme, year);
+    const result = studentDetails.length != 0 ? generateCombinations(programme, year, studentDetails) : []
     const [ trackCheck, setTrackCheck ] = useState(result)
 
-    const updatedDetails = studentDetails.map((data) => {
-        const filteredTrackCheck = trackCheck.filter((value) => value.assigned === data.name);
+    if (studentDetails.length != 0) {
+      const updatedDetails = studentDetails.map((data) => {
+        const filteredTrackCheck = trackCheck.filter((value) => value.assigned === data.studentId);
         const objValues = filteredTrackCheck.map((value) => ({
           year: value.year,
           program: value.program,
@@ -114,6 +116,8 @@ function Assign({ handleView }) {
         data.assign.push(...objValues); // Update the data.assign property
         return data; // Return the updated data object
       });
+    }
+
       
     // const ExpandedComponent = ( studentDetails ) => {
     //   const assignedClasses = studentDetails.data.assign
@@ -141,6 +145,13 @@ function Assign({ handleView }) {
           });
         });
       };
+    
+    const handleCreate = () => {
+      console.log({
+        "eventDetails" : formData,
+        "assignment" : trackCheck,
+      })
+    }
     
     const columns = [
         {
@@ -357,6 +368,7 @@ function Assign({ handleView }) {
               <div className="flex gap-5">
                 <button
                   className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-1 px-2 rounded"
+                  onClick={ handleCreate }
                   >
                   Create
                 </button>
