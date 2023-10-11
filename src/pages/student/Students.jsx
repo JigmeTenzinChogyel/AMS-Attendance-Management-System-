@@ -1,35 +1,36 @@
 import DataTable from "react-data-table-component";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { studentDetails } from "../../Data/dummyStudent";
+// import { studentDetails } from "../../Data/dummyStudent";
 import exportFromJSON from 'export-from-json'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {IP} from "../../utils/ip.js";
 
 function Students() {
   
   const navigate = useNavigate();
-  // const apiUrl = 'http://192.168.137.32:3000/api/student/get-all-students';
+  const apiUrl = `http://${IP}:3000/api/student/get-all-students`;
   
-  // const [students, setStudents] = useState([]); // Change the state variable name to "students"
-  // const [search, setSearch] = useState("");
+  const [students, setStudents] = useState([]); // Change the state variable name to "students"
+  const [search, setSearch] = useState("");
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch(apiUrl);
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
 
-  //       const data = await response.json();
-  //       console.log(data);
-  //       setStudents(data); // Change the state setter to setStudents
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
+        const data = await response.json();
+        console.log(data);
+        setStudents(data); // Change the state setter to setStudents
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
 
   const columns = [
     {
@@ -56,15 +57,15 @@ function Students() {
     },
     {
       name: "Programme",
-      selector: (row) => row.programme,
+      selector: (row) => row.Class.programme,
     },
     {
       name: "Semester",
-      selector: (row) => row.semester,
+      selector: (row) => row.Class.semester,
     },
     {
       name: "Role",
-      selector: (row) => row.role,
+      selector: (row) => row.account.role,
     },
     {
       name: "Edit",
@@ -83,7 +84,7 @@ function Students() {
   ];
 
   const onExport = () => {
-    const data = studentDetails
+    const data = students
     const fileName = 'student_download'
     const exportType =  exportFromJSON.types.csv
     exportFromJSON({ data, fileName, exportType })
@@ -98,22 +99,21 @@ function Students() {
     }
   };
 
-  // const handleDelete = (data) => {
-  //   // Handle Delete
+  const handleDelete = (data) => {
+    // Handle Delete
 
-  // };
+  };
 
-  // const filteredStudents = students.filter((data) => {
-  //   return data.studentId.toLowerCase().includes(search.toLowerCase()); // Use optional chaining
-  // });
+  const filteredStudents = students.filter((data) => {
+    return data.studentId.toLowerCase().includes(search.toLowerCase()); // Use optional chaining
+  });
 
   return (
     <div className="w-11/12 mt-4 rounded-lg">
       <DataTable
         columns={columns}
         data={ 
-          //filteredStudents
-          studentDetails
+          filteredStudents
         }
         title="Student Details List"
         pagination
@@ -135,16 +135,16 @@ function Students() {
               Export</button>
           </div>
         }
-        // subHeader
-        // subHeaderComponent={
-        //   <input
-        //     type="text"
-        //     placeholder="Student No..."
-        //     className="border border-blue-800 rounded-md py-1 px-3 focus:ring-blue-500 focus:border-blue-500"
-        //     value={search}
-        //     onChange={(e) => setSearch(e.target.value)}
-        //   />
-        // }
+        subHeader
+        subHeaderComponent={
+          <input
+            type="text"
+            placeholder="Student No..."
+            className="border border-blue-800 rounded-md py-1 px-3 focus:ring-blue-500 focus:border-blue-500"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        }
       />
     </div>
   );

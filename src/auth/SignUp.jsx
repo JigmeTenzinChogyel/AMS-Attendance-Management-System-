@@ -4,6 +4,7 @@ import logo from '../assets/logo.png';
 import { useNavigate } from "react-router-dom";
 import analyse from '../assets/analyse.svg'
 import checkmark from '../assets/checkmark.png'
+import {IP} from "../utils/ip.js";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ function SignUp() {
       };
 
       // Send a POST request to the registration endpoint
-      const response = await axios.post('http://192.168.137.149:3000/api/auth/register', data);
+      const response = await axios.post(`http://${IP}:3000/api/auth/register`, data);
 
       // Check the response status
       if (response.status === 201) {
@@ -150,8 +151,8 @@ function SignUp() {
                     required
                   >
                     <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
                   </select>
                 </div>
               </div>
@@ -167,7 +168,7 @@ function SignUp() {
                     required
                   >
                     <option value="">Select programme</option>
-                    <option value="Information technology">Information Technology</option>
+                    <option value="Information Technology">Information Technology</option>
                     <option value="electronics and communications engineering">Electronics and Communications Engineering</option>
                     <option value="electrical engineering">Electrical Engineering</option>
                     <option value="engineering geology">Engineering Geology</option>

@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Assign from './Assign';
+import {IP} from "../../../utils/ip.js";
 
 function CreateEvent() {
   const navigate = useNavigate();
   const [ isView, setIsView ] = useState(false)
 
-  // const apiUrl = 'http://192.168.137.149:3000/api/events/createEvent';
+  const apiUrl = `http://${IP}:3000/api/events/createEvent`;
   const initialFormData = {
     title: '',
     description: '',
@@ -20,71 +21,71 @@ function CreateEvent() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // if (name === 'startTime') {
-    //   const date = new Date(value);
+    if (name === 'startTime') {
+      const date = new Date(value);
 
-    //   if (!isNaN(date)) {
-    //     setFormData({
-    //       ...formData,
-    //       startTime: date.toISOString(),
-    //     });
-    //   } else {
-    //     console.error('Invalid date input');
-    //   }
-    // } else {
-    //   setFormData({
-    //     ...formData,
-    //     [name]: value,
-    //   });
-    // }
+      if (!isNaN(date)) {
+        setFormData({
+          ...formData,
+          startTime: date.toISOString(),
+        });
+      } else {
+        console.error('Invalid date input');
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch(apiUrl, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
-  //     const data = await response.json();
-  //     console.log('Event created:', data);
+      const data = await response.json();
+      console.log('Event created:', data);
 
-  //     // Check if the response status is 200 (OK)
-  //     if (response.status === 200) {
-  //       // Display an alert indicating that the event has been created
-  //       alert('Event created successfully');
+      // Check if the response status is 200 (OK)
+      if (response.status === 200) {
+        // Display an alert indicating that the event has been created
+        alert('Event created successfully');
 
-  //       // Redirect to the event page
-  //       navigate(-1); 
-  //     }
+        // Redirect to the event page
+        navigate(-1);
+      }
 
-  //     // Clear the form after successful submission
-  //     setFormData(initialFormData);
-  //   } catch (error) {
-  //     console.error('Error submitting form:', error);
-  //   }
-  // };
+      // Clear the form after successful submission
+      setFormData(initialFormData);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
 
   const handleView = data => {
-    data == 0 && setIsView(!isView)
+    data === 0 && setIsView(!isView)
   }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    setIsView(!isView)
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   setIsView(!isView)
+  // }
 
   return (
     <div className="w-11/12">
@@ -161,7 +162,7 @@ function CreateEvent() {
           <button 
             type="submit" 
             className="bg-green-500 hover:bg-green-700 text-white font-semibold text-base py-2 px-3 rounded mr-2">
-            Assign
+            Create
           </button>
           <button type="button" 
             className="bg-red-500 hover:bg-red-700 text-white font-semibold text-base py-2 px-3 rounded"

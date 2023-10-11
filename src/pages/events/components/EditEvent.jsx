@@ -1,15 +1,34 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { dummyEvents } from '../../../Data/MyEventList';
 import { useParams } from 'react-router-dom';
+import {IP} from "../../../utils/ip.js";
 
 function EditEvent() {
-
   const navigate = useNavigate();
   const { id } = useParams()
-  const initialData = dummyEvents.find(data => data.id == id)
+  const [events, setEvents] = useState([]);
 
-  const [formData, setFormData] = useState(initialData);
+  const [formData, setFormData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://${IP}:3000/api/events/get-event-by-id/${id}`);
+        if (response.ok) {
+          const data = await response.json();
+          // console.log(data)
+          setFormData(data);
+        } else {
+          console.error('Failed to fetch data');
+        }
+      } catch (error) {
+        console.error('An error occurred while fetching data', error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

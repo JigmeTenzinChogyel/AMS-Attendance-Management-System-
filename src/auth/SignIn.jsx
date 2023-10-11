@@ -4,6 +4,7 @@ import logo from '../assets/logo.png'
 import attendance from '../assets/attendance.png'
 import axios from 'axios';
 import checkmark from '../assets/checkmark.png'
+import {IP} from "../utils/ip.js";
 
 function SignIn() {
 
@@ -30,7 +31,8 @@ function SignIn() {
         return;
       }
       // Send a POST request to the login endpoint
-      const response = await axios.post('http://192.168.137.32:3000/api/auth/login', data);
+      const response = await axios.post(`http://${IP}:3000/api/auth/login`, data);
+      console.log(response)
       // Check the response status
       if (response.status === 200) {
         // Assuming your API returns refreshToken and accessToken in the response
@@ -67,7 +69,7 @@ function SignIn() {
 
   const handleVisibility = () => {
     setIsVisible(isVisible => !isVisible)
-    if ( localStorage.getItem('role') === "ADMIN"){
+    if ( localStorage.getItem('role') === "admin"){
       navigate("/admin"); // Notify the user
     } else {
       navigate("/user"); // Notify the user

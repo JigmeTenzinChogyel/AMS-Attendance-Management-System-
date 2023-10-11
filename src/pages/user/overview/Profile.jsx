@@ -2,22 +2,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function Profile() {
 
-    // const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
-    // const classDetails = JSON.parse(localStorage.getItem('classDetails'))
-    // const role = localStorage.getItem('role')
+    const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
+    const classDetails = JSON.parse(localStorage.getItem('classDetails'))
+    const role = localStorage.getItem('role')
 
     // const classDetails = JSON.parse(localStorage.getItem('classDetails'))
     // const role = localStorage.getItem('role')
-    const studentDetails = {
-        name: "John Doe",
-        studentId: "123456",
-        gender: "Male",
-        email: "john.doe@example.com",
-      };
-      const classDetails = {
-        programme: "Computer Science",
-      };
-      const role = "Student";
+    // const studentDetails = {
+    //     name: "John Doe",
+    //     studentId: "123456",
+    //     gender: "Male",
+    //     email: "john.doe@example.com",
+    //   };
+    //   const classDetails = {
+    //     programme: "Computer Science",
+    //   };
+    //   const role = "Student";
 
     const cardStyle = "w-1/4 flex items-center gap-4 rounded-lg border border-slate-300 bg-white py-4 px-6"
 

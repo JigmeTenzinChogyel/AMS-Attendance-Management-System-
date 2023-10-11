@@ -100,10 +100,10 @@ function Assign({ handleView , formData }) {
     
     const [ isAssign, setIsAssign ] = useState(false)
     const [ councilor, setCouncilor ] = useState("")
-    const result = studentDetails.length != 0 ? generateCombinations(programme, year, studentDetails) : []
+    const result = studentDetails.length !== 0 ? generateCombinations(programme, year, studentDetails) : []
     const [ trackCheck, setTrackCheck ] = useState(result)
 
-    if (studentDetails.length != 0) {
+    if (studentDetails.length !== 0) {
       const updatedDetails = studentDetails.map((data) => {
         const filteredTrackCheck = trackCheck.filter((value) => value.assigned === data.studentId);
         const objValues = filteredTrackCheck.map((value) => ({
@@ -127,7 +127,7 @@ function Assign({ handleView , formData }) {
     //       return <p key={index}>{index+1 + " " + data.year + data.program}</p>}
     //       )}
     //       </div>
-    // }; 
+    // };
     const ExpandedComponent = ( studentDetails ) => <pre>{JSON.stringify(studentDetails.data.assign, null, 2)}</pre>;
 
     const handleCheck = (data) => {

@@ -7,10 +7,11 @@ import { useNavigate } from "react-router-dom";
 function UserNav() {
   const navigate = useNavigate()
 
-  // const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
-  const studentDetails = "Jigme"
-  const role = "councilor"
-
+  const data = JSON.parse(localStorage.getItem('studentDetails'))
+    console.log(data)
+  const studentDetails = data.name
+  const role = localStorage.getItem('role')
+    console.log(studentDetails,role)
     //active link or nav bar
     const style = "px-4 my-2 py-2 text-lg text-black font-semibold"
     const activeStyle = "px-4 my-2 py-2 text-lg text-blue-500 font-semibold border-b-2 border-blue-500"
@@ -42,6 +43,8 @@ function UserNav() {
 
     const handleLogout = () => {
       //handle Logout
+        localStorage.clear()
+        navigate("/")
     }
 
   return (
@@ -87,7 +90,7 @@ function UserNav() {
                 <FontAwesomeIcon icon="fa-solid fa-circle" className='text-xs absolute text-red-600 -mt-1 -ml-3'/>
             </div>
             <div className="flex items-center gap-2 cursor-pointer">
-                <p>{studentDetails.name}</p>
+                <p>{studentDetails}</p>
                 <FontAwesomeIcon 
                   icon="fa-solid fa-arrow-right-from-bracket"
                   onClick={ handleLogout } />

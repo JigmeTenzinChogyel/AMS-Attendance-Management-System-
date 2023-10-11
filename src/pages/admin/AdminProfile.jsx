@@ -1,18 +1,24 @@
 
 function AdminProfile() {
 
-    const studentDetails = {
-        name: "John Doe",
-        studentId: "123456",
-        gender: "Male",
-        email: "john.doe@example.com",
-      };
-      
-      const classDetails = {
-        programme: "Computer Science",
-      };
-      
-      const role = "Student"; // You can change this to "Councilor" to test the condition
+
+
+    // const studentDetails = {
+    //     name: "John Doe",
+    //     studentId: "123456",
+    //     gender: "Male",
+    //     email: "john.doe@example.com",
+    //   };
+    //
+    //   const classDetails = {
+    //     programme: "Computer Science",
+    //   };
+    //
+    //   const role = "Student"; //
+    //  You can change this to "Councilor" to test the condition
+    const studentDetails = JSON.parse(localStorage.getItem('studentDetails'))
+    const classDetails = JSON.parse(localStorage.getItem('classDetails'))
+    const role = localStorage.getItem('role')
 
   return (
     <div className="m-3 px-6 py-4 bg-white font-Roboto flex items-center">

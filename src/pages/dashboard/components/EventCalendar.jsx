@@ -2,11 +2,12 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import './calendar.css'
 import { useState, useEffect } from 'react'
+import {IP} from "../../../utils/ip.js";
 
 function EventCalendar() {
 
   const localizer = momentLocalizer(moment)
-  const apiUrl = 'http://192.168.137.32:3000/api/events/getAllEvents';
+  const apiUrl = `http://${IP}:3000/api/events/getAllEvents`;
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
