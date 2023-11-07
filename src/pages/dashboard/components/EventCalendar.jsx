@@ -19,7 +19,6 @@ function EventCalendar() {
         }
 
         const data = await response.json();
-        console.log(data)
         setEvents(data);
       } catch (error) {
         console.error('Error fetching data:', error);

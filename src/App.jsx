@@ -15,7 +15,6 @@ import UserLayout from "./layouts/UserLayout"
 import Overview from "./pages/user/Overview"
 import UserAttendance from "./pages/user/Attendance"
 import UserLeave from "./pages/user/Leave"
-import UserReport from "./pages/user/Report"
 import TakeAttendance from "./pages/user/TakeAttendance"
 import CreateEvent from "./pages/events/components/CreateEvent"
 import EventLayout from "./layouts/EventLayout"
@@ -43,7 +42,6 @@ function App() {
             <Route path=":id" element={<TakeAttendance />} />
           </Route>
           <Route path="leave" element={ <UserLeave /> }/>
-          <Route path="report" element={ <UserReport /> }/>
           <Route path="notification" element={ <UserNotification /> }/>
         </Route>
         <Route path="admin" element={<Layout />} >

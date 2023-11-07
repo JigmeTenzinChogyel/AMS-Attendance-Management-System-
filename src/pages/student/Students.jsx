@@ -57,7 +57,7 @@ function Students() {
     },
     {
       name: "Programme",
-      selector: (row) => row.Class.programme,
+      selector: (row) => row.Class.academicYear,
     },
     {
       name: "Semester",
@@ -70,7 +70,7 @@ function Students() {
     {
       name: "Edit",
       cell: (row) => 
-      <button onClick={() => navigate(row.id)}>
+      <button onClick={() => navigate(row.studentId)}>
         <FontAwesomeIcon icon="fa-solid fa-pen-to-square" className="text-lg ml-1 text-blue-400" />
       </button>, // Added cell property
     },
@@ -91,17 +91,14 @@ function Students() {
   }
 
   const confirmDelete = ( data ) => {
-    const shouldDelete = window.confirm("Are you sure you want to delete this event?");
+    const shouldDelete = window.confirm("Are you sure you want to delete this account?");
     if (shouldDelete) {
-      // Call a function to handle the deletion of the event
-      //handleDelete(row);
       console.log(`delete ${data}`)
     }
   };
 
   const handleDelete = (data) => {
     // Handle Delete
-
   };
 
   const filteredStudents = students.filter((data) => {

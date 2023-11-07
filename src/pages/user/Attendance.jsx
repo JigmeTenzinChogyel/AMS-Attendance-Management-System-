@@ -1,4 +1,3 @@
-import AttendanceTable from "./overview/AttendanceTable";
 import { useNavigate } from "react-router-dom";
 
 function Attendance() {
@@ -28,7 +27,6 @@ function Attendance() {
           </div>
         ))}
       </div>
-      <AttendanceTable />
     </div>
   );
 }
